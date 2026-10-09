@@ -1,0 +1,30 @@
+{
+  "items": [
+    {
+      "name": "Penny Brohn UK",
+      "region": "Bristol"
+    },
+    {
+      "name": "Cavendish Cancer Care",
+      "region": "Sheffield"
+    },
+    {
+      "name": "Yorkshire Cancer Research",
+      "region": "Leeds"
+    },
+    {
+      "name": "Tenovus Cancer Care",
+      "region": "Wales"
+    },
+    {
+      "name": "Action Cancer",
+      "region": "Northern Ireland"
+    }
+  ],
+  "friends": [
+    {
+      "name": "Royal Marsden Gigantic",
+      "region": "Friend of Cancer Staged"
+    }
+  ]
+}

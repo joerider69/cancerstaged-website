@@ -1,0 +1,27 @@
+{
+  "donateUrl": "https://www.justgiving.com/charity/thecancerstagedfoundation",
+  "amounts": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "impact": [
+    {
+      "amount": 10,
+      "line": "helps cover a grassroots venue’s sound engineer for a night."
+    },
+    {
+      "amount": 25,
+      "line": "funds a full ticket for a family affected by cancer."
+    },
+    {
+      "amount": 50,
+      "line": "puts a local charity partner’s team in the room on show night."
+    },
+    {
+      "amount": 100,
+      "line": "adds to the national grants pool for UK cancer charities."
+    }
+  ]
+}

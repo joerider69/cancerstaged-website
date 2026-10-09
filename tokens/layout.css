@@ -1,0 +1,25 @@
+/* Layout utilities used by components for responsive behaviour (inline styles can't hold media queries) */
+.cs-container{width:100%;max-width:var(--page-max);margin-inline:auto;padding-inline:var(--page-margin)}
+.cs-section{padding-block:var(--section-y)}
+.cs-section-tight{padding-block:var(--section-y-tight)}
+.cs-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);row-gap:var(--space-8)}
+.cs-measure{max-width:var(--measure-body)}
+.cs-mob{display:none!important}
+@media (max-width:1023px){
+.cs-grid.cs-collapse-md>*{grid-column:1/-1!important;grid-row:auto!important}
+.cs-desk{display:none!important}
+.cs-mob{display:revert!important}
+.cs-mob.cs-flex{display:flex!important}
+}
+@media (max-width:767px){
+.cs-grid>*{grid-column:1/-1!important;grid-row:auto!important}
+.cs-stack-sm{flex-direction:column!important;align-items:flex-start!important}
+.cs-hide-sm{display:none!important}
+.cs-scroll-sm{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:var(--gutter)!important;margin-inline:calc(var(--page-margin)*-1);padding-inline:var(--page-margin)}
+.cs-scroll-sm>*{flex:0 0 82%;scroll-snap-align:start}
+}
+.cs-reveal{opacity:0;transform:translateY(var(--move-m));transition:opacity var(--dur-reveal) var(--ease-out),transform var(--dur-reveal) var(--ease-out)}
+.cs-reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.cs-reveal{opacity:1;transform:none}}
+.cs-nowrap{white-space:nowrap}
+@media (max-width:767px){.cs-nowrap{white-space:normal}}

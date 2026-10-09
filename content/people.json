@@ -1,0 +1,62 @@
+{
+  "founders": [
+    {
+      "name": "Mark Rooney",
+      "role": "Co-founder",
+      "bio": "A former professional footballer turned music events specialist. Mark was diagnosed with Stage 4 kidney cancer in 2018. He has channelled his experience of music's healing power in cancer wards into Cancer Staged.",
+      "image": "portrait-mark"
+    },
+    {
+      "name": "Steve Bond",
+      "role": "Co-founder",
+      "bio": "A serial entrepreneur with a career spanning retail, sports and the music industry. Survived a sudden cardiac arrest; now helps build how the UK fights cancer.",
+      "image": "portrait-steve"
+    },
+    {
+      "name": "Joe Rider",
+      "role": "General Manager",
+      "bio": "An operational leader with 30 years across agency, tech culture and live events. Joe makes Cancer Staged work - turning vision into action, and ambition into impact.",
+      "image": "portrait-joe"
+    }
+  ],
+  "trustees": [
+    {
+      "name": "Alexis Goldstein",
+      "role": "Chair Trustee",
+      "image": "",
+      "bio": ""
+    },
+    {
+      "name": "Mark Rooney",
+      "role": "Trustee",
+      "image": "portrait-mark",
+      "bio": "A former professional footballer turned music events specialist. Mark was diagnosed with Stage 4 kidney cancer in 2018. He has channelled his experience of music’s healing power in cancer wards into Cancer Staged."
+    },
+    {
+      "name": "Steve Bond",
+      "role": "Trustee",
+      "image": "portrait-steve",
+      "bio": "A serial entrepreneur with a career spanning retail, sports and the music industry. Steve survived a sudden cardiac arrest, saved by his wife’s quick-thinking CPR. That second chance brought him to Cancer Staged."
+    },
+    {
+      "name": "Bernice Russell-Fish",
+      "role": "Trustee",
+      "image": "",
+      "bio": ""
+    },
+    {
+      "name": "Professor Jonathan Lim",
+      "role": "Trustee",
+      "image": "",
+      "bio": "Jonathan is a consultant medical oncologist at The Christie NHS Foundation Trust in Manchester, one of Europe’s largest specialist cancer centres, bringing frontline clinical experience to the board."
+    }
+  ],
+  "advisors": [
+    {
+      "name": "Professor Samra Turajlic",
+      "role": "Chief Medical Advisor",
+      "image": "",
+      "bio": "Samra is a consultant medical oncologist and cancer researcher with the Cancer Research UK Manchester Institute. Her work on how cancers evolve, particularly kidney cancer and melanoma, is internationally recognised."
+    }
+  ]
+}

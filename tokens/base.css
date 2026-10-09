@@ -1,0 +1,11 @@
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg-page);color:var(--text-primary);font-family:var(--font-body);font-size:var(--type-body);line-height:var(--lh-body);font-weight:400}
+h1,h2,h3,h4,h5,h6,button{font-family:var(--font-heading)}
+h1,h2,h3,h4{font-feature-settings:'ss01'}
+img{max-width:100%}
+a{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+a:hover{color:var(--text-accent-on-light)}
+::selection{background:var(--cs-orange);color:var(--cs-ink)}
+:focus-visible{outline:var(--focus-ring-width) solid var(--focus-ring-light);outline-offset:var(--focus-ring-offset)}
+.cs-dark :focus-visible{outline-color:var(--focus-ring-dark)}
