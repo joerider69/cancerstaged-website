@@ -7,7 +7,8 @@ const ALIAS = {
   'Our Trustees': 'Transparency',
   'Annual Report': 'Transparency',
   'Partner With Us': 'Partners',
-  'For Brands': 'Brand Partnerships'
+  'For Brands': 'Support Us',
+  'Brand Partnerships': 'Support Us'
 };
 const SCREENS = {
   Home: HomeScreen,
@@ -22,7 +23,7 @@ const SCREENS = {
   Partners: PartnersScreen,
   Contact: ContactScreen,
   'Founding Circle': FoundingCircleScreen,
-  'Brand Partnerships': BrandPartnershipsScreen,
+  'Support Us': SupportUsScreen,
   Privacy: PrivacyScreen,
   Terms: TermsScreen,
   Accessibility: AccessibilityScreen
@@ -32,7 +33,7 @@ const HAS_CTA = ['Home', 'About', 'What We Do'];
 const NAV_ACTIVE = {
   Event: 'Events',
   Story: 'Stories',
-  'Brand Partnerships': 'For Brands'
+  'Founding Circle': 'Support Us'
 };
 function App() {
   const read = () => {

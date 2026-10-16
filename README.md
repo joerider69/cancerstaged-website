@@ -35,6 +35,14 @@ Go to `/admin` and sign in. The sections are:
 
 Changes are saved as drafts first (*editorial workflow*). Click **Publish** to put them live; Netlify redeploys in under a minute.
 
+## Contact form and email
+The Contact page sends messages through Netlify Forms.
+1. In Netlify, go to *Forms* and click **Enable form detection**, then redeploy (*Deploys → Trigger deploy*).
+2. Under *Forms → Form notifications*, add an **Email notification** to `contact@cancerstaged.org`.
+3. Send a test message from the live Contact page and check it arrives. Messages also appear under *Forms* in Netlify.
+
+`contact@cancerstaged.org` itself is a mailbox at your domain provider (123-reg). Make sure it is set up, then send it a test email from an outside address.
+
 ## Donations and tickets
 - All donations go through **JustGiving** (https://www.justgiving.com/charity/thecancerstagedfoundation). The Donate page sends people there and shows a QR code. The site itself takes no payments.
 - The QR code is a fixed image at `assets/qr/justgiving-qr.png` (and `.svg` for print). Use the same files in newsletters, socials and email footers.

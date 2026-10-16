@@ -1,9 +1,9 @@
 const { SiteHeader, SiteFooter } = window.CancerStagedDesignSystem_cc2fc3;
-const ALIAS = { 'Find an Event': 'Events', 'Our Trustees': 'Transparency', 'Annual Report': 'Transparency', 'Partner With Us': 'Partners', 'For Brands': 'Brand Partnerships' };
-const SCREENS = { Home: HomeScreen, About: AboutScreen, 'What We Do': WhatWeDoScreen, Events: EventsScreen, Event: EventDetailScreen, Stories: StoriesScreen, Story: StoryDetailScreen, Donate: DonateScreen, Transparency: TransparencyScreen, Partners: PartnersScreen, Contact: ContactScreen, 'Founding Circle': FoundingCircleScreen, 'Brand Partnerships': BrandPartnershipsScreen, Privacy: PrivacyScreen, Terms: TermsScreen, Accessibility: AccessibilityScreen };
+const ALIAS = { 'Find an Event': 'Events', 'Our Trustees': 'Transparency', 'Annual Report': 'Transparency', 'Partner With Us': 'Partners', 'For Brands': 'Support Us', 'Brand Partnerships': 'Support Us' };
+const SCREENS = { Home: HomeScreen, About: AboutScreen, 'What We Do': WhatWeDoScreen, Events: EventsScreen, Event: EventDetailScreen, Stories: StoriesScreen, Story: StoryDetailScreen, Donate: DonateScreen, Transparency: TransparencyScreen, Partners: PartnersScreen, Contact: ContactScreen, 'Founding Circle': FoundingCircleScreen, 'Support Us': SupportUsScreen, Privacy: PrivacyScreen, Terms: TermsScreen, Accessibility: AccessibilityScreen };
 const OVERLAY = ['Home', 'About', 'What We Do', 'Events', 'Event'];
 const HAS_CTA = ['Home', 'About', 'What We Do'];
-const NAV_ACTIVE = { Event: 'Events', Story: 'Stories', 'Brand Partnerships': 'For Brands' };
+const NAV_ACTIVE = { Event: 'Events', Story: 'Stories', 'Founding Circle': 'Support Us' };
 function App() {
   const read = () => { const q = new URLSearchParams(location.search).get('page'); return q && SCREENS[q] ? q : 'Home'; };
   const [page, setPage] = React.useState(read);

@@ -2215,7 +2215,7 @@ Object.assign(__ds_scope, { Pagination });
 
 // components/navigation/SiteFooter.jsx
 try { (() => {
-const GROUPS = [['Explore', ['About', 'What We Do', 'Events', 'Stories']], ['Get involved', ['Find an Event', 'Donate', 'Brand Partnerships', 'Founding Circle', 'Partners', 'Contact']], ['Accountability', ['Transparency', 'Our Trustees', 'Annual Report']]];
+const GROUPS = [['Explore', ['About', 'What We Do', 'Events', 'Stories']], ['Get involved', ['Find an Event', 'Donate', 'Support Us', 'Partners', 'Contact']], ['Accountability', ['Transparency', 'Our Trustees', 'Annual Report']]];
 const SOCIAL = [['sq-instagram-v2.png', 'Instagram'], ['sq-youtube.png', 'YouTube'], ['sq-linkedin.png', 'LinkedIn'], ['sq-facebook.png', 'Facebook']];
 function SiteFooter({
   onNavigate,
@@ -2301,7 +2301,7 @@ function SiteFooter({
       fontWeight: 900,
       color: 'var(--cs-orange)'
     }
-  }, "Let", '\u2019', "s say no to cancer.")), /*#__PURE__*/React.createElement(__ds_scope.NewsletterInput, {
+  }, "Loud for a reason.")), /*#__PURE__*/React.createElement(__ds_scope.NewsletterInput, {
     tone: "dark"
   })), GROUPS.map(([t, ls], i) => /*#__PURE__*/React.createElement("nav", {
     key: t,
@@ -2400,7 +2400,7 @@ const {
   useEffect,
   useState
 } = React;
-const LINKS = ['About', 'What We Do', 'Events', 'Stories', 'Transparency', 'For Brands'];
+const LINKS = ['About', 'What We Do', 'Events', 'Stories', 'Transparency', 'Support Us'];
 function SiteHeader({
   links = LINKS,
   active,

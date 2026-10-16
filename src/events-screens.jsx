@@ -14,7 +14,7 @@ function EventsScreen({ go }) {
       </Section>
       <Section bg="ink">
         <div className="cs-grid" style={{ alignItems: 'end', marginBottom: 40 }}>
-          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="Season 01 programme" title="Nov 2026 - Apr 2027." size="h1" tone="dark" /></div>
+          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="Season 01 programme" title="Dec 2026 - May 2027." size="h1" tone="dark" /></div>
           <div style={{ gridColumn: '9 / span 4' }}><Tabs tone="dark" tabs={['Upcoming', 'Past']} value={tab} onChange={setTab} /></div>
         </div>
         {tab === 'Upcoming' ? <>
@@ -61,8 +61,8 @@ function EventDetailScreen({ go }) {
         <div className="cs-grid cs-collapse-md">
           <div style={{ gridColumn: '1 / span 7', display: 'flex', flexDirection: 'column', gap: 32 }}>
             <Eyebrow accent>Launch night</Eyebrow>
-            <Body size="body-l">On Wednesday 11 November 2026, Cancer Staged stages its first show at Union Chapel in Islington, London - a landmark venue for live music.</Body>
-            <Body>It's the first date in a route that continues with our 2027 UK Showcase Tour across Bristol, Brighton, Nottingham, Sheffield, Leeds, Manchester and Liverpool. Every ticket contributes to a local cancer charity partner and to our national grants pool.</Body>
+            <Body size="body-l">On Tuesday 1 December 2026, Cancer Staged stages its first show at Union Chapel in Islington, London - a landmark venue for live music.</Body>
+            <Body>It's the first date in a route that continues with our 2027 UK Showcase Tour across Bristol, Brighton, Cardiff, Nottingham, Sheffield, Leeds, Manchester and Liverpool. Every ticket contributes to a local cancer charity partner and to our national grants pool.</Body>
             <div style={{ borderTop: 'var(--border-rule) solid var(--cs-ink)', paddingTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
               <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h3)', letterSpacing: 'var(--ls-h3)' }}>Line-up</div>
               <Body style={{ color: 'var(--text-secondary)' }}>Artists to be announced. Join the mailing list to hear first.</Body>

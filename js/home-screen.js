@@ -200,7 +200,7 @@ function HomeScreen({
     }
   }, React.createElement(EventMeta, {
     tone: "dark",
-    items: ['Season 01', 'Feb - Apr 2027']
+    items: ['Season 01', 'Feb - May 2027']
   }))), D.route.map(r => React.createElement(ProgrammeRow, {
     key: r.city,
     day: r.day,
@@ -277,7 +277,7 @@ function HomeScreen({
     items: [{
       value: '50 / 50',
       title: 'Split fairly',
-      body: 'Net surplus from every show split equally between a named local charity and our national grants pool, which awards its first grants from Year 2.'
+      body: 'Net surplus from every show split equally between a named local charity and our national grants pool.'
     }, {
       value: '100%',
       title: 'Published',
@@ -321,11 +321,11 @@ function HomeScreen({
       gridColumn: '1 / span 7'
     }
   }, React.createElement(SectionHeading, {
-    eyebrow: "For brands",
-    title: "Partner with Cancer Staged.",
+    eyebrow: "Support us",
+    title: "Every way to help.",
     size: "h1",
     tone: "dark",
-    lead: "Sponsor a show, partner across the season, or support us another way."
+    lead: "Donate, come to a show, give in memory, or partner with us as a business or brand."
   })), React.createElement("div", {
     style: {
       gridColumn: '9 / span 4'
@@ -333,8 +333,8 @@ function HomeScreen({
   }, React.createElement(Button, {
     size: "lg",
     arrow: true,
-    onClick: () => go('Brand Partnerships')
-  }, "Explore partnerships")))), React.createElement(Section, {
+    onClick: () => go('Support Us')
+  }, "Ways to support")))), React.createElement(Section, {
     bg: "bone"
   }, React.createElement("div", {
     className: "cs-grid",

@@ -1,9 +1,9 @@
 {
   "launch": {
-    "day": "11",
-    "month": "Nov",
+    "day": "01",
+    "month": "Dec",
     "year": "2026",
-    "weekday": "Wed",
+    "weekday": "Tue",
     "title": "Live at Union Chapel",
     "venue": "Union Chapel",
     "location": "Islington, London",
@@ -44,6 +44,19 @@
       "mon": "Mar",
       "year": "2027",
       "weekday": "Date TBC",
+      "city": "Cardiff",
+      "venue": "Venue TBC",
+      "charity": "TBC",
+      "status": "Details soon",
+      "img": "be-part-of-it",
+      "ticketUrl": ""
+    },
+    {
+      "day": "Mar",
+      "month": "2027",
+      "mon": "Mar",
+      "year": "2027",
+      "weekday": "Date TBC",
       "city": "Nottingham",
       "venue": "Venue TBC",
       "charity": "TBC",
@@ -52,9 +65,9 @@
       "ticketUrl": ""
     },
     {
-      "day": "Mar",
+      "day": "Apr",
       "month": "2027",
-      "mon": "Mar",
+      "mon": "Apr",
       "year": "2027",
       "weekday": "Date TBC",
       "city": "Sheffield",
@@ -65,9 +78,9 @@
       "ticketUrl": ""
     },
     {
-      "day": "Mar",
+      "day": "Apr",
       "month": "2027",
-      "mon": "Mar",
+      "mon": "Apr",
       "year": "2027",
       "weekday": "Date TBC",
       "city": "Leeds",
@@ -78,9 +91,9 @@
       "ticketUrl": ""
     },
     {
-      "day": "Apr",
+      "day": "May",
       "month": "2027",
-      "mon": "Apr",
+      "mon": "May",
       "year": "2027",
       "weekday": "Date TBC",
       "city": "Manchester",
@@ -91,9 +104,9 @@
       "ticketUrl": ""
     },
     {
-      "day": "Apr",
+      "day": "May",
       "month": "2027",
-      "mon": "Apr",
+      "mon": "May",
       "year": "2027",
       "weekday": "Date TBC",
       "city": "Liverpool",

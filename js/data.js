@@ -31,6 +31,7 @@
         justGiving: c.donation.donateUrl || 'https://www.justgiving.com/charity/thecancerstagedfoundation',
         contactEmail: s.contactEmail,
         partnershipEmail: s.partnershipEmail || s.contactEmail,
+        netlifyForms: true, merchUrl: s.merchUrl || '',
         social: { instagram: s.instagram || '', youtube: s.youtube || '', linkedin: s.linkedin || '', facebook: s.facebook || '' }
       };
       var order = ['kit', 'home-screen', 'events-screens', 'stories-screens', 'donate-screen', 'page-screens', 'policy-screens', 'app'];

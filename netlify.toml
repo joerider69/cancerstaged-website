@@ -2,8 +2,13 @@
   publish = "."
 
 [[redirects]]
+  from = "/support"
+  to = "/?page=Support%20Us"
+  status = 301
+
+[[redirects]]
   from = "/partner"
-  to = "/?page=Brand%20Partnerships"
+  to = "/?page=Support%20Us"
   status = 301
 
 [[headers]]

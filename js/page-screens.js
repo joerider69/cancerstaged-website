@@ -99,7 +99,7 @@ function AboutScreen({
     }
   }, React.createElement(SectionHeading, {
     eyebrow: "Why we started",
-    title: "From two second chances, a united front.",
+    title: "From two second chances came a united front.",
     size: "h1"
   })), React.createElement("div", {
     style: {
@@ -192,7 +192,7 @@ function AboutScreen({
       gridColumn: '6 / span 7'
     }
   }, React.createElement(TrusteeList, {
-    people: D.trustees
+    people: [...D.trustees, ...D.advisors]
   }), React.createElement(Body, {
     size: "body-s",
     style: {
@@ -219,7 +219,7 @@ function WhatWeDoScreen({
     Eyebrow
   } = PgDS;
   const D = window.CS_DATA;
-  const prog = [['01', 'Grassroots gigs', 'We begin in the grassroots rooms where new artists are made, supporting UK towns and venues under real pressure from the decline of regular touring shows.', 'grassroots-gig'], ['02', 'Flagship shows', 'As the audience builds, we add flagship shows in major venues, pairing national reach with named local cancer charities.', 'flagship-show-v2'], ['03', 'National grants pool', 'Half of every show\'s net surplus builds a national grants pool. The first grants are awarded from Year 2, to UK cancer charities through an open, published round.', 'grants-pool-v2']];
+  const prog = [['01', 'Grassroots gigs', 'We begin in the grassroots rooms where new artists are made, supporting UK towns and venues under real pressure from the decline of regular touring shows.', 'grassroots-gig'], ['02', 'Flagship shows', 'As the audience builds, we add flagship shows in major venues, pairing national reach with named local cancer charities.', 'flagship-show-v2'], ['03', 'National grants pool', 'Half of every show\'s net surplus builds a national grants pool. Grants will be awarded to UK cancer charities through open, published rounds.', 'grants-pool-v2']];
   return React.createElement("div", null, React.createElement(Hero, {
     image: D.img(D.pages.whatwedo.image),
     focal: "center 35%",
@@ -328,7 +328,7 @@ function TransparencyScreen({
   }, React.createElement(FiftyFifty, {
     left: "Local cancer charity",
     right: "National grants pool",
-    caption: "Net surplus from every show, split equally. The national pool awards its first grants from Year 2."
+    caption: "Net surplus from every show, split equally. Grants will be awarded to UK cancer charities through open, published rounds."
   })), React.createElement(Section, {
     bg: "white"
   }, React.createElement(SectionHeading, {
@@ -400,57 +400,106 @@ function PartnersScreen({
   go
 }) {
   const {
-    PartnerWall,
     TransparencyList,
     SectionHeading,
     Button
   } = PgDS;
   const D = window.CS_DATA;
+  const line = '1px solid var(--border-subtle)';
   return React.createElement("div", null, React.createElement(PageIntro, {
     eyebrow: "Partners",
     title: "Together, we go further.",
-    lead: "Half of every show's net surplus goes to a local cancer charity partner, chosen for that city."
+    lead: "The venues, charities, sponsors and brands who help make each night happen. New partners are added here as they're confirmed."
   }), React.createElement(Section, {
     bg: "white",
     innerStyle: {
       paddingTop: 0
     }
   }, React.createElement(SectionHeading, {
-    eyebrow: "Charity partners",
-    title: "Local cancer charities.",
+    eyebrow: "Our partners",
+    title: "In our corner.",
     size: "h2",
     style: {
       marginBottom: 40
     }
-  }), React.createElement(PartnerWall, {
-    columns: 3,
-    partners: D.partners
-  })), React.createElement(Section, {
-    bg: "bone"
-  }, React.createElement("div", {
-    className: "cs-grid",
+  }), React.createElement("ul", {
     style: {
-      alignItems: 'start'
+      listStyle: 'none',
+      margin: 0,
+      padding: 0,
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+      borderTop: line,
+      borderLeft: line
     }
-  }, React.createElement("div", {
+  }, D.partners.map(p => React.createElement("li", {
+    key: p.name,
     style: {
-      gridColumn: '1 / span 5',
+      borderRight: line,
+      borderBottom: line
+    }
+  }, React.createElement("a", {
+    href: p.url || undefined,
+    target: p.url ? '_blank' : undefined,
+    rel: "noopener noreferrer",
+    style: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 20
+      gap: 20,
+      padding: 28,
+      height: '100%',
+      boxSizing: 'border-box',
+      textDecoration: 'none',
+      color: 'var(--text-primary)'
     }
-  }, React.createElement(SectionHeading, {
-    eyebrow: "Friends of Cancer Staged",
-    title: "The people and organisations in our corner.",
-    size: "h2"
-  }), React.createElement(Body, null, "Organisations from across music and the cancer community who share our ambition and help us make each night happen.")), React.createElement("div", {
+  }, React.createElement("div", {
     style: {
-      gridColumn: '7 / span 6'
+      aspectRatio: '3/2',
+      display: 'grid',
+      placeItems: 'center'
     }
-  }, React.createElement(PartnerWall, {
-    columns: 2,
-    partners: D.friends
-  })))), React.createElement(Section, {
+  }, p.logo ? React.createElement("img", {
+    src: D.img(p.logo),
+    alt: p.name + ' logo',
+    style: {
+      width: '64%',
+      height: '100%',
+      objectFit: 'contain',
+      display: 'block'
+    }
+  }) : React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 600,
+      fontSize: 'var(--type-h3)'
+    }
+  }, p.name)), React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 6
+    }
+  }, p.region && React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-heading)',
+      fontSize: 12,
+      letterSpacing: '.1em',
+      textTransform: 'uppercase',
+      color: 'var(--text-secondary)'
+    }
+  }, p.region), React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 600,
+      fontSize: 'var(--type-h4)',
+      letterSpacing: '-.015em'
+    }
+  }, p.name, p.url && React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      color: '#B23B08'
+    }
+  }, " \u2197")))))))), React.createElement(Section, {
     bg: "bone"
   }, React.createElement(SectionHeading, {
     eyebrow: "How partnership works",
@@ -483,11 +532,11 @@ function PartnersScreen({
       gridColumn: '1 / span 7'
     }
   }, React.createElement(SectionHeading, {
-    eyebrow: "Brand partnerships",
-    title: "Are you a brand?",
+    eyebrow: "Support us",
+    title: "Want to get involved?",
     size: "h1",
     tone: "dark",
-    lead: "Sponsor a show, partner across the season, or support Cancer Staged another way."
+    lead: "Donate, come to a show, or partner with us as a business or brand."
   })), React.createElement("div", {
     style: {
       gridColumn: '9 / span 4'
@@ -495,8 +544,8 @@ function PartnersScreen({
   }, React.createElement(Button, {
     size: "lg",
     arrow: true,
-    onClick: () => go('Brand Partnerships')
-  }, "Partner with Cancer Staged")))), React.createElement(Section, {
+    onClick: () => go('Support Us')
+  }, "Ways to support")))), React.createElement(Section, {
     bg: "orange"
   }, React.createElement("div", {
     className: "cs-grid",
@@ -533,6 +582,8 @@ function ContactScreen({
     Checkbox,
     Eyebrow
   } = PgDS;
+  const D = window.CS_DATA;
+  const [busy, setBusy] = React.useState(false);
   const [sent, setSent] = React.useState(false);
   const [f, setF] = React.useState({
     name: '',
@@ -548,7 +599,30 @@ function ContactScreen({
     if (!f.subject) e.subject = 'Choose a subject.';
     if (!f.msg) e.msg = 'Write a short message.';
     setErr(e);
-    if (!Object.keys(e).length) setSent(true);
+    if (Object.keys(e).length) return;
+    if (!D.netlifyForms) {
+      setSent(true);
+      return;
+    }
+    setBusy(true);
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        'form-name': 'contact',
+        subject: f.subject,
+        name: f.name,
+        email: f.email,
+        message: f.msg
+      }).toString()
+    }).then(r => {
+      if (!r.ok) throw new Error('send failed');
+      setSent(true);
+    }).catch(() => setErr({
+      form: 'Sorry, your message didn’t send. Please email us at ' + D.contactEmail + '.'
+    })).finally(() => setBusy(false));
   };
   return React.createElement(Section, {
     bg: "white",
@@ -574,7 +648,13 @@ function ContactScreen({
     style: {
       maxWidth: '30ch'
     }
-  }, "Artists, venues, charities, brands, press or just a question - tell us who you are and we'll route it to the right person.")), React.createElement("div", {
+  }, "Artists, venues, charities, brands, press or just a question - tell us who you are and we'll route it to the right person."), React.createElement(Body, null, "Or email us at ", React.createElement("a", {
+    href: 'mailto:' + D.contactEmail,
+    style: {
+      color: 'inherit',
+      fontWeight: 600
+    }
+  }, D.contactEmail), ".")), React.createElement("div", {
     style: {
       gridColumn: '7 / span 6',
       display: 'flex',
@@ -608,7 +688,7 @@ function ContactScreen({
   }, "Back to home"))) : React.createElement(React.Fragment, null, React.createElement(Select, {
     label: "I'm getting in touch about",
     placeholder: "Choose a subject",
-    options: ['Events & tickets', 'Artists & performing', 'Venues', 'Charity partnerships', 'Brand partnerships & sponsorship', 'Founding Circle & giving', 'Press', 'Something else'],
+    options: ['Events & tickets', 'Artists & performing', 'Venues', 'Charity partnerships', 'Brand partnerships & sponsorship', 'Founding Circle & giving', 'Donations & legacy gifts', 'Press', 'Something else'],
     value: f.subject,
     onChange: e => setF({
       ...f,
@@ -673,9 +753,17 @@ function ContactScreen({
   }, err.msg)), React.createElement(Checkbox, {
     label: "Keep me posted about events",
     description: "Occasional emails. Unsubscribe anytime."
-  }), React.createElement("div", null, React.createElement(Button, {
+  }), err.form && React.createElement("span", {
+    role: "alert",
+    style: {
+      fontSize: 15,
+      color: 'var(--status-error)'
+    }
+  }, err.form), React.createElement("div", null, React.createElement(Button, {
     size: "lg",
     arrow: true,
+    loading: busy,
+    disabled: busy,
     onClick: send
   }, "Send message"))))));
 }
@@ -834,8 +922,8 @@ function FoundingCircleScreen({
       borderBottom: '1px solid var(--border-subtle)'
     }
   }, React.createElement(Body, null, "Looking for a brand partnership? Sponsorship, activation and content are a separate, commercial route."), React.createElement(TextLink, {
-    onClick: () => go('Brand Partnerships')
-  }, "Partner with Cancer Staged")), React.createElement(Body, {
+    onClick: () => go('Support Us')
+  }, "See all ways to support")), React.createElement(Body, {
     size: "caption",
     style: {
       color: 'var(--text-secondary)',
@@ -843,31 +931,109 @@ function FoundingCircleScreen({
     }
   }, "This is general awareness only and does not constitute tax, legal, financial or estate-planning advice. The Cancer Staged Foundation, registered charity No. 1209616. Content subject to change.")));
 }
-function BrandPartnershipsScreen({
+function SupportUsScreen({
   go
 }) {
   const {
     SectionHeading,
     Eyebrow,
     Button,
-    TransparencyList,
-    TextLink
+    TransparencyList
   } = PgDS;
   const D = window.CS_DATA;
-  const routes = [['Sponsor a show', 'Live Event Sponsor', 'Presenting partner of a show, a city or the UK Showcase Tour.', ['Brand on stage, tickets, livestream and social', 'Hospitality and artist introductions', 'Film and photography for your channels', 'A post-show impact report']], ['Partner across the season', 'Founding Brand Partner', 'Partner with Cancer Staged across the whole season, from the first show.', ['All core supporter and event-partner benefits', 'Founding partner recognition', 'Category exclusivity across the season', 'Private events, rehearsals and artist moments', 'Full impact reporting and an annual review']], ['Support Cancer Staged another way', 'Friend of Cancer Staged', 'Support in kind or at a level that fits, from day one.', ['Product, equipment, services or activation', 'Supporter recognition online and at shows', 'Staff engagement and ticket offers', 'Seasonal updates on impact']]];
+  const email = D.partnershipEmail || D.contactEmail;
+  const mailto = s => 'mailto:' + email + '?subject=' + encodeURIComponent(s);
+  const merch = D.merchUrl || '';
+  const donate = () => go('Donate');
+  const ways = [['Donate', 'Make a one-off or monthly gift.', [['Donate', donate]]], ['Come to a show', 'Buy a ticket for one of our UK shows. Every ticket helps fund UK cancer charities.', [['Find tickets', () => go('Events')], ['Donate', donate, 'secondary']]], ['Match your gift', 'Ask your employer to match your donation through their matched giving scheme.', [['Donate', donate]]], ['Give in memory', 'Make a donation in memory of a loved one affected by cancer.', [['Donate', donate]]], ['Leave a gift in your will', 'A legacy gift keeps the music playing for years to come. We recommend taking independent financial advice.', [['Contact us', mailto('Legacy gift')]]], ['Buy merchandise', 'Shop online or at our shows. 50% of all merchandise sales go directly into grants.', [[merch ? 'Merch store' : 'Store opening soon', merch || null]]]];
+  const routes = [['Sponsor a show', 'Live Event Sponsor', 'Presenting partner of a show, a city or the UK Showcase Tour.', ['Brand on stage, tickets, livestream and social', 'Hospitality and artist introductions', 'Film and photography for your channels', 'A post-show impact report']], ['Partner across the season', 'Founding Brand Partner', 'Partner with Cancer Staged across the whole season, from the first show.', ['All core supporter and event-partner benefits', 'Founding partner recognition', 'Category exclusivity across the season', 'Private events, rehearsals and artist moments', 'Full impact reporting and an annual review']], ['Support us another way', 'Friend of Cancer Staged', 'Support in kind or at a level that fits, from day one.', ['Product, equipment, services or activation', 'Supporter recognition online and at shows', 'Staff engagement and ticket offers', 'Seasonal updates on impact']]];
   const why = [['Visible social impact', 'Be seen funding UK cancer charities in every city, with the impact reported show by show.'], ['Access and content', 'Hospitality, artist introductions, and film and photography made for your channels.'], ['Category exclusivity', 'Sole status in your category, agreed as part of a season partnership.'], ['New money, not diverted money', 'Ticket income comes from entertainment spend, so your support grows what reaches UK cancer charities rather than shifting existing donations.']];
-  const mail = 'mailto:' + (D.partnershipEmail || D.contactEmail) + '?subject=' + encodeURIComponent('Brand partnership');
+  const act = ([label, to, v]) => !to ? React.createElement("span", {
+    key: label,
+    style: {
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 600,
+      fontSize: 15,
+      color: 'var(--text-secondary)',
+      paddingBlock: 10
+    }
+  }, label) : typeof to === 'string' ? React.createElement(Button, {
+    key: label,
+    size: "md",
+    variant: v || 'primary',
+    arrow: true,
+    href: to
+  }, label) : React.createElement(Button, {
+    key: label,
+    size: "md",
+    variant: v || 'primary',
+    arrow: true,
+    onClick: to
+  }, label);
   return React.createElement("div", null, React.createElement(PageIntro, {
-    eyebrow: "Brand partnerships",
-    title: "Partner with Cancer Staged.",
-    lead: "For brands that want to stand with UK cancer charities, in the rooms where live music happens. Every partnership is tailored to you."
+    eyebrow: "Support us",
+    title: "Be loud for a reason.",
+    lead: "Whether you're a fan, a business or a brand, there's a way to help live music fund UK cancer charities."
   }), React.createElement(Section, {
+    bg: "bone"
+  }, React.createElement(SectionHeading, {
+    eyebrow: "For individuals",
+    title: "Six ways to give.",
+    size: "h1",
+    style: {
+      marginBottom: 56
+    }
+  }), React.createElement("div", {
+    className: "cs-grid cs-collapse-md",
+    style: {
+      rowGap: 56
+    }
+  }, ways.map(([t, b, acts], i) => React.createElement("div", {
+    key: t,
+    style: {
+      gridColumn: 'span 4',
+      borderTop: 'var(--border-rule) solid var(--cs-ink)',
+      paddingTop: 24,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 12
+    }
+  }, React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-heading)',
+      fontSize: 14,
+      fontWeight: 500,
+      color: '#B23B08'
+    }
+  }, String(i + 1).padStart(2, '0')), React.createElement("h3", {
+    style: {
+      margin: 0,
+      fontFamily: 'var(--font-heading)',
+      fontWeight: 600,
+      fontSize: 'var(--type-h3)',
+      lineHeight: 'var(--lh-h3)',
+      letterSpacing: 'var(--ls-h3)'
+    }
+  }, t), React.createElement(Body, {
+    size: "body-s",
+    style: {
+      flex: '1 1 auto'
+    }
+  }, b), React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 12,
+      marginTop: 8
+    }
+  }, acts.map(act)))))), React.createElement(Section, {
     bg: "ink"
   }, React.createElement(SectionHeading, {
-    eyebrow: "Three ways in",
-    title: "Choose how you show up.",
+    eyebrow: "For corporates and brands",
+    title: "Three ways in.",
     size: "h1",
     tone: "dark",
+    lead: "Commercial partnerships, each shaped around your priorities, with cash, product or activation in kind.",
     style: {
       marginBottom: 56
     }
@@ -921,7 +1087,7 @@ function BrandPartnershipsScreen({
       borderTop: '1px solid var(--border-inverse-subtle)'
     }
   }, i))))))), React.createElement(Section, {
-    bg: "bone"
+    bg: "white"
   }, React.createElement("div", {
     className: "cs-grid",
     style: {
@@ -933,69 +1099,44 @@ function BrandPartnershipsScreen({
     }
   }, React.createElement(SectionHeading, {
     eyebrow: "Why partner",
-    title: "What your brand gets.",
+    title: "What your business gets.",
     size: "h1"
   })), React.createElement("div", {
     style: {
       gridColumn: '8 / span 5'
     }
-  }, React.createElement(Body, null, "Shaped around your priorities, with cash, product or activation in kind. Detailed options and commercials are set out in a tailored proposal."))), React.createElement(TransparencyList, {
+  }, React.createElement(Body, null, "Detailed options and commercials are set out in a tailored proposal."))), React.createElement(TransparencyList, {
     items: why.map(([title, body]) => ({
       title,
       body
     }))
   })), React.createElement(Section, {
-    bg: "white"
+    bg: "bone"
   }, React.createElement("div", {
     className: "cs-grid cs-collapse-md",
     style: {
-      rowGap: 40
+      alignItems: 'end',
+      rowGap: 32
     }
   }, React.createElement("div", {
     style: {
-      gridColumn: '1 / span 4'
+      gridColumn: '1 / span 6'
     }
   }, React.createElement(SectionHeading, {
-    eyebrow: "Partnership or giving?",
-    title: "Two different ways in.",
-    size: "h2"
+    eyebrow: "Philanthropic and corporate giving",
+    title: "The Founding Circle.",
+    size: "h1"
   })), React.createElement("div", {
     style: {
-      gridColumn: '6 / span 3',
-      borderTop: 'var(--border-rule) solid var(--cs-ink)',
-      paddingTop: 20,
+      gridColumn: '8 / span 5',
       display: 'flex',
       flexDirection: 'column',
-      gap: 12
+      gap: 20,
+      alignItems: 'flex-start'
     }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-heading)',
-      fontWeight: 600,
-      fontSize: 'var(--type-h4)',
-      letterSpacing: 'var(--ls-h4)'
-    }
-  }, "Brand partnership"), React.createElement(Body, {
-    size: "body-s"
-  }, "Commercial. Sponsorship, activation and content, agreed in a tailored proposal around your marketing goals.")), React.createElement("div", {
-    style: {
-      gridColumn: '10 / span 3',
-      borderTop: 'var(--border-rule) solid var(--cs-ink)',
-      paddingTop: 20,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 12
-    }
-  }, React.createElement("div", {
-    style: {
-      fontFamily: 'var(--font-heading)',
-      fontWeight: 600,
-      fontSize: 'var(--type-h4)',
-      letterSpacing: 'var(--ls-h4)'
-    }
-  }, "Founding Circle"), React.createElement(Body, {
-    size: "body-s"
-  }, "Philanthropic and corporate giving (CSR). Founding gifts from \xA310K that build the charity's capacity."), React.createElement(TextLink, {
+  }, React.createElement(Body, null, "Founding gifts from \xA310K, for individuals and companies giving philanthropically or through CSR, that build the charity's capacity to grow."), React.createElement(Button, {
+    variant: "secondary",
+    arrow: true,
     onClick: () => go('Founding Circle')
   }, "Explore the Founding Circle")))), React.createElement(Section, {
     bg: "orange"
@@ -1014,10 +1155,10 @@ function BrandPartnershipsScreen({
     }
   }, React.createElement(SectionHeading, {
     eyebrow: "Start a conversation",
-    title: "Let's build your partnership.",
+    title: "Let's talk.",
     size: "h1",
     tone: "orange"
-  }), React.createElement(Body, null, "Tell us about your brand and goals, and we'll come back with a tailored proposal.")), React.createElement("div", {
+  }), React.createElement(Body, null, "Tell us how you'd like to help, and we'll come back to you.")), React.createElement("div", {
     style: {
       gridColumn: '9 / span 4',
       display: 'flex',
@@ -1028,12 +1169,12 @@ function BrandPartnershipsScreen({
   }, React.createElement(Button, {
     size: "lg",
     arrow: true,
-    href: mail
+    href: mailto('Supporting Cancer Staged')
   }, "Talk to us"), React.createElement("span", {
     style: {
       fontSize: 14
     }
-  }, D.partnershipEmail || D.contactEmail)))));
+  }, email)))));
 }
 Object.assign(window, {
   AboutScreen,
@@ -1042,5 +1183,6 @@ Object.assign(window, {
   PartnersScreen,
   ContactScreen,
   FoundingCircleScreen,
-  BrandPartnershipsScreen
+  SupportUsScreen,
+  BrandPartnershipsScreen: SupportUsScreen
 });

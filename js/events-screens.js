@@ -52,7 +52,7 @@ function EventsScreen({
     }
   }, React.createElement(SectionHeading, {
     eyebrow: "Season 01 programme",
-    title: "Nov 2026 - Apr 2027.",
+    title: "Dec 2026 - May 2027.",
     size: "h1",
     tone: "dark"
   })), React.createElement("div", {
@@ -222,7 +222,7 @@ function EventDetailScreen({
     accent: true
   }, "Launch night"), React.createElement(Body, {
     size: "body-l"
-  }, "On Wednesday 11 November 2026, Cancer Staged stages its first show at Union Chapel in Islington, London - a landmark venue for live music."), React.createElement(Body, null, "It's the first date in a route that continues with our 2027 UK Showcase Tour across Bristol, Brighton, Nottingham, Sheffield, Leeds, Manchester and Liverpool. Every ticket contributes to a local cancer charity partner and to our national grants pool."), React.createElement("div", {
+  }, "On Tuesday 1 December 2026, Cancer Staged stages its first show at Union Chapel in Islington, London - a landmark venue for live music."), React.createElement(Body, null, "It's the first date in a route that continues with our 2027 UK Showcase Tour across Bristol, Brighton, Cardiff, Nottingham, Sheffield, Leeds, Manchester and Liverpool. Every ticket contributes to a local cancer charity partner and to our national grants pool."), React.createElement("div", {
     style: {
       borderTop: 'var(--border-rule) solid var(--cs-ink)',
       paddingTop: 24,

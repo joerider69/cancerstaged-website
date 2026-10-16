@@ -16,15 +16,15 @@
       "name": "Joe Rider",
       "role": "General Manager",
       "bio": "An operational leader with 30 years across agency, tech culture and live events. Joe makes Cancer Staged work - turning vision into action, and ambition into impact.",
-      "image": "portrait-joe"
+      "image": "portrait-joe.jpg"
     }
   ],
   "trustees": [
     {
       "name": "Alexis Goldstein",
       "role": "Chair Trustee",
-      "image": "",
-      "bio": ""
+      "image": "portrait-alexis.jpg",
+      "bio": "A retired solicitor who joined Statham Gill Davies in 1994. In 2024 Alexis was instrumental in its merger with Moore Kingston Smith, before retiring in 2026 with the unusual experience of being a partner in both a legal and an accountancy practice. Throughout his career he has worked with artists and businesses across the music industry and, like so many others, his family has been touched by cancer."
     },
     {
       "name": "Mark Rooney",
@@ -41,13 +41,13 @@
     {
       "name": "Bernice Russell-Fish",
       "role": "Trustee",
-      "image": "",
-      "bio": ""
+      "image": "portrait-bernice.jpg",
+      "bio": "Supporting her late husband’s work with Cancer Staged, Bernice brings an eclectic love of music and first-hand knowledge of just how important local independent charities are, having been supported by two of them through her own breast cancer treatment and the journey that followed."
     },
     {
       "name": "Professor Jonathan Lim",
       "role": "Trustee",
-      "image": "",
+      "image": "portrait-jonathan.jpg",
       "bio": "Jonathan is a consultant medical oncologist at The Christie NHS Foundation Trust in Manchester, one of Europe’s largest specialist cancer centres, bringing frontline clinical experience to the board."
     }
   ],
@@ -55,8 +55,8 @@
     {
       "name": "Professor Samra Turajlic",
       "role": "Chief Medical Advisor",
-      "image": "",
-      "bio": "Samra is a consultant medical oncologist and cancer researcher with the Cancer Research UK Manchester Institute. Her work on how cancers evolve, particularly kidney cancer and melanoma, is internationally recognised."
+      "image": "portrait-samra.jpg",
+      "bio": "Samra is the Director of the Cancer Research UK Manchester Institute, a Consultant Medical Oncologist at The Christie and leads the Cancer Dynamics research group. She is a Trustee of the Kidney Cancer Support Network and Melanoma Focus, and a Senior Editor at Macmillan Cancer Support."
     }
   ]
 }

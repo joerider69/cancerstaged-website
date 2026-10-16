@@ -62,7 +62,7 @@ function HomeScreen({ go }) {
       <Section bg="ink">
         <div className="cs-grid" style={{ alignItems: 'end', marginBottom: 48 }}>
           <div style={{ gridColumn: '1 / span 8' }}><SectionHeading eyebrow="The route continues" title="2027 UK Showcase Tour." size="h1" tone="dark" /></div>
-          <div style={{ gridColumn: '9 / span 4', display: 'flex', justifyContent: 'flex-end' }}><EventMeta tone="dark" items={['Season 01', 'Feb - Apr 2027']} /></div>
+          <div style={{ gridColumn: '9 / span 4', display: 'flex', justifyContent: 'flex-end' }}><EventMeta tone="dark" items={['Season 01', 'Feb - May 2027']} /></div>
         </div>
         {D.route.map((r) => <ProgrammeRow key={r.city} day={r.day} month={r.month} weekday={r.weekday} city={r.city} venue={r.venue} charity={r.charity} status={r.status} onClick={() => go('Events')} />)}
         <div style={{ borderTop: '1px solid var(--border-inverse-subtle)', paddingTop: 32 }}><TextLink tone="dark" onClick={() => go('Events')}>View all events</TextLink></div>
@@ -85,7 +85,7 @@ function HomeScreen({ go }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 64 }}>
           <SectionHeading eyebrow="Radical transparency" title="You should know" accent="where the money goes." caps size="display-l" />
           <TransparencyList items={[
-            { value: '50 / 50', title: 'Split fairly', body: 'Net surplus from every show split equally between a named local charity and our national grants pool, which awards its first grants from Year 2.' },
+            { value: '50 / 50', title: 'Split fairly', body: 'Net surplus from every show split equally between a named local charity and our national grants pool.' },
             { value: '100%', title: 'Published', body: 'Grant criteria, award decisions and recipient outcomes reported openly, with an annual independent audit.' },
             { value: '0', title: 'Hidden cuts', body: 'An independent grants panel, published conflict-of-interest declarations and a trustee majority.' },
           ]} />
@@ -100,11 +100,11 @@ function HomeScreen({ go }) {
         </div>
       </Section>
 
-      {/* 10b BRANDS - Ink */}
+      {/* 10b SUPPORT US - Ink */}
       <Section bg="ink">
         <div className="cs-grid" style={{ alignItems: 'end', rowGap: 32 }}>
-          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="For brands" title="Partner with Cancer Staged." size="h1" tone="dark" lead="Sponsor a show, partner across the season, or support us another way." /></div>
-          <div style={{ gridColumn: '9 / span 4' }}><Button size="lg" arrow onClick={() => go('Brand Partnerships')}>Explore partnerships</Button></div>
+          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="Support us" title="Every way to help." size="h1" tone="dark" lead="Donate, come to a show, give in memory, or partner with us as a business or brand." /></div>
+          <div style={{ gridColumn: '9 / span 4' }}><Button size="lg" arrow onClick={() => go('Support Us')}>Ways to support</Button></div>
         </div>
       </Section>
       {/* 11 STORIES - magazine */}

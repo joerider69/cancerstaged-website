@@ -37,7 +37,7 @@ function AboutScreen({ go }) {
       <Hero image={D.img(D.pages.about.image)} focal="70% 30%" height="tall" eyebrow={D.pages.about.eyebrow} title={D.pages.about.title} accent={D.pages.about.accent} lead={D.pages.about.lead} />
       <Section bg="bone">
         <div className="cs-grid">
-          <div style={{ gridColumn: '1 / span 5' }}><SectionHeading eyebrow="Why we started" title="From two second chances, a united front." size="h1" /></div>
+          <div style={{ gridColumn: '1 / span 5' }}><SectionHeading eyebrow="Why we started" title="From two second chances came a united front." size="h1" /></div>
           <div style={{ gridColumn: '7 / span 6', display: 'flex', flexDirection: 'column', gap: 24 }}>
             <Body size="body-l">In 2018, co-founder Mark Rooney was diagnosed with Stage 4 kidney cancer. Rather than accept the prognosis, he channelled his experience of music's healing power in cancer wards into a bold new idea: a charity that unites the entire cancer sector through live music.</Body>
             <Body>Co-founder Steve Bond nearly lost his life to a sudden cardiac arrest, saved only by his wife's quick-thinking CPR. That second chance brought him to Cancer Staged, where he now helps build something that could transform how the UK fights cancer.</Body>
@@ -64,7 +64,7 @@ function AboutScreen({ go }) {
         <div className="cs-grid">
           <div style={{ gridColumn: '1 / span 4' }}><SectionHeading eyebrow="Our board" title="Governance." size="h2" /></div>
           <div style={{ gridColumn: '6 / span 7' }}>
-            <TrusteeList people={D.trustees} />
+            <TrusteeList people={[...D.trustees, ...D.advisors]} />
             <Body size="body-s" style={{ marginTop: 24, color: 'var(--text-secondary)' }}>The Cancer Staged Foundation is a registered UK charity, No. 1209616, moving to an independent trustee majority, with Gift Aid registration underway.</Body>
           </div>
         </div>
@@ -80,7 +80,7 @@ function WhatWeDoScreen({ go }) {
   const prog = [
     ['01', 'Grassroots gigs', 'We begin in the grassroots rooms where new artists are made, supporting UK towns and venues under real pressure from the decline of regular touring shows.', 'grassroots-gig'],
     ['02', 'Flagship shows', 'As the audience builds, we add flagship shows in major venues, pairing national reach with named local cancer charities.', 'flagship-show-v2'],
-    ['03', 'National grants pool', 'Half of every show\'s net surplus builds a national grants pool. The first grants are awarded from Year 2, to UK cancer charities through an open, published round.', 'grants-pool-v2'],
+    ['03', 'National grants pool', 'Half of every show\'s net surplus builds a national grants pool. Grants will be awarded to UK cancer charities through open, published rounds.', 'grants-pool-v2'],
   ];
   return (
     <div>
@@ -113,7 +113,7 @@ function TransparencyScreen({ go }) {
   return (
     <div>
       <PageIntro eyebrow="Transparency" title="Where your money goes." lead="What each show makes, and where it goes, is published openly. No hidden cuts." />
-      <Section bg="orange"><FiftyFifty left="Local cancer charity" right="National grants pool" caption="Net surplus from every show, split equally. The national pool awards its first grants from Year 2." /></Section>
+      <Section bg="orange"><FiftyFifty left="Local cancer charity" right="National grants pool" caption="Net surplus from every show, split equally. Grants will be awarded to UK cancer charities through open, published rounds." /></Section>
       <Section bg="white">
         <SectionHeading eyebrow="How grants are made" title="Seen to be fair." size="h1" style={{ marginBottom: 56 }} />
         <TransparencyList items={[
@@ -137,23 +137,27 @@ function TransparencyScreen({ go }) {
 }
 
 function PartnersScreen({ go }) {
-  const { PartnerWall, TransparencyList, SectionHeading, Button } = PgDS;
+  const { TransparencyList, SectionHeading, Button } = PgDS;
   const D = window.CS_DATA;
+  const line = '1px solid var(--border-subtle)';
   return (
     <div>
-      <PageIntro eyebrow="Partners" title="Together, we go further." lead="Half of every show's net surplus goes to a local cancer charity partner, chosen for that city." />
+      <PageIntro eyebrow="Partners" title="Together, we go further." lead="The venues, charities, sponsors and brands who help make each night happen. New partners are added here as they're confirmed." />
       <Section bg="white" innerStyle={{ paddingTop: 0 }}>
-        <SectionHeading eyebrow="Charity partners" title="Local cancer charities." size="h2" style={{ marginBottom: 40 }} />
-        <PartnerWall columns={3} partners={D.partners} />
-      </Section>
-      <Section bg="bone">
-        <div className="cs-grid" style={{ alignItems: 'start' }}>
-          <div style={{ gridColumn: '1 / span 5', display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <SectionHeading eyebrow="Friends of Cancer Staged" title="The people and organisations in our corner." size="h2" />
-            <Body>Organisations from across music and the cancer community who share our ambition and help us make each night happen.</Body>
-          </div>
-          <div style={{ gridColumn: '7 / span 6' }}><PartnerWall columns={2} partners={D.friends} /></div>
-        </div>
+        <SectionHeading eyebrow="Our partners" title="In our corner." size="h2" style={{ marginBottom: 40 }} />
+        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', borderTop: line, borderLeft: line }}>
+          {D.partners.map((p) => (
+            <li key={p.name} style={{ borderRight: line, borderBottom: line }}>
+              <a href={p.url || undefined} target={p.url ? '_blank' : undefined} rel="noopener noreferrer" style={{ display: 'flex', flexDirection: 'column', gap: 20, padding: 28, height: '100%', boxSizing: 'border-box', textDecoration: 'none', color: 'var(--text-primary)' }}>
+                <div style={{ aspectRatio: '3/2', display: 'grid', placeItems: 'center' }}>{p.logo ? <img src={D.img(p.logo)} alt={p.name + ' logo'} style={{ width: '64%', height: '100%', objectFit: 'contain', display: 'block' }} /> : <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h3)' }}>{p.name}</span>}</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                  {p.region && <span style={{ fontFamily: 'var(--font-heading)', fontSize: 12, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--text-secondary)' }}>{p.region}</span>}
+                  <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h4)', letterSpacing: '-.015em' }}>{p.name}{p.url && <span aria-hidden="true" style={{ color: '#B23B08' }}> ↗</span>}</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </Section>
       <Section bg="bone">
         <SectionHeading eyebrow="How partnership works" title="Local knowledge. National reach." size="h1" style={{ marginBottom: 56 }} />
@@ -165,8 +169,8 @@ function PartnersScreen({ go }) {
       </Section>
       <Section bg="ink">
         <div className="cs-grid" style={{ alignItems: 'end', rowGap: 32 }}>
-          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="Brand partnerships" title="Are you a brand?" size="h1" tone="dark" lead="Sponsor a show, partner across the season, or support Cancer Staged another way." /></div>
-          <div style={{ gridColumn: '9 / span 4' }}><Button size="lg" arrow onClick={() => go('Brand Partnerships')}>Partner with Cancer Staged</Button></div>
+          <div style={{ gridColumn: '1 / span 7' }}><SectionHeading eyebrow="Support us" title="Want to get involved?" size="h1" tone="dark" lead="Donate, come to a show, or partner with us as a business or brand." /></div>
+          <div style={{ gridColumn: '9 / span 4' }}><Button size="lg" arrow onClick={() => go('Support Us')}>Ways to support</Button></div>
         </div>
       </Section>
       <Section bg="orange">
@@ -181,16 +185,19 @@ function PartnersScreen({ go }) {
 
 function ContactScreen({ go }) {
   const { SectionHeading, TextInput, Select, Button, Checkbox, Eyebrow } = PgDS;
+  const D = window.CS_DATA;
+  const [busy, setBusy] = React.useState(false);
   const [sent, setSent] = React.useState(false);
   const [f, setF] = React.useState({ name: '', email: '', subject: '', msg: '' });
   const [err, setErr] = React.useState({});
-  const send = () => { const e = {}; if (!f.name) e.name = 'Enter your name.'; if (!/@/.test(f.email)) e.email = 'Enter a valid email address.'; if (!f.subject) e.subject = 'Choose a subject.'; if (!f.msg) e.msg = 'Write a short message.'; setErr(e); if (!Object.keys(e).length) setSent(true); };
+  const send = () => { const e = {}; if (!f.name) e.name = 'Enter your name.'; if (!/@/.test(f.email)) e.email = 'Enter a valid email address.'; if (!f.subject) e.subject = 'Choose a subject.'; if (!f.msg) e.msg = 'Write a short message.'; setErr(e); if (Object.keys(e).length) return; if (!D.netlifyForms) { setSent(true); return; } setBusy(true); fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': 'contact', subject: f.subject, name: f.name, email: f.email, message: f.msg }).toString() }).then((r) => { if (!r.ok) throw new Error('send failed'); setSent(true); }).catch(() => setErr({ form: 'Sorry, your message didn’t send. Please email us at ' + D.contactEmail + '.' })).finally(() => setBusy(false)); };
   return (
     <Section bg="white" innerStyle={{ paddingTop: 'calc(var(--header-h) + var(--space-11))' }}>
       <div className="cs-grid cs-collapse-md">
         <div style={{ gridColumn: '1 / span 5', display: 'flex', flexDirection: 'column', gap: 24 }}>
           <SectionHeading eyebrow="Contact" title="Get in touch." size="display-l" as="h1" />
           <Body size="body-l" style={{ maxWidth: '30ch' }}>Artists, venues, charities, brands, press or just a question - tell us who you are and we'll route it to the right person.</Body>
+          <Body>Or email us at <a href={'mailto:' + D.contactEmail} style={{ color: 'inherit', fontWeight: 600 }}>{D.contactEmail}</a>.</Body>
         </div>
         <div style={{ gridColumn: '7 / span 6', display: 'flex', flexDirection: 'column', gap: 24 }}>
           {sent ? (
@@ -200,7 +207,7 @@ function ContactScreen({ go }) {
               <div><Button variant="secondary" onClick={() => go('Home')}>Back to home</Button></div>
             </div>
           ) : <>
-            <Select label="I'm getting in touch about" placeholder="Choose a subject" options={['Events & tickets', 'Artists & performing', 'Venues', 'Charity partnerships', 'Brand partnerships & sponsorship', 'Founding Circle & giving', 'Press', 'Something else']} value={f.subject} onChange={(e) => setF({ ...f, subject: e.target.value })} error={err.subject} />
+            <Select label="I'm getting in touch about" placeholder="Choose a subject" options={['Events & tickets', 'Artists & performing', 'Venues', 'Charity partnerships', 'Brand partnerships & sponsorship', 'Founding Circle & giving', 'Donations & legacy gifts', 'Press', 'Something else']} value={f.subject} onChange={(e) => setF({ ...f, subject: e.target.value })} error={err.subject} />
             <TextInput label="Full name" autoComplete="name" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} error={err.name} />
             <TextInput label="Email address" type="email" autoComplete="email" value={f.email} onChange={(e) => setF({ ...f, email: e.target.value })} error={err.email} />
             <label style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -210,7 +217,8 @@ function ContactScreen({ go }) {
               {err.msg && <span role="alert" style={{ fontSize: 14, color: 'var(--status-error)' }}>{err.msg}</span>}
             </label>
             <Checkbox label="Keep me posted about events" description="Occasional emails. Unsubscribe anytime." />
-            <div><Button size="lg" arrow onClick={send}>Send message</Button></div>
+            {err.form && <span role="alert" style={{ fontSize: 15, color: 'var(--status-error)' }}>{err.form}</span>}
+            <div><Button size="lg" arrow loading={busy} disabled={busy} onClick={send}>Send message</Button></div>
           </>}
         </div>
       </div>
@@ -275,20 +283,32 @@ function FoundingCircleScreen({ go }) {
       <Section bg="white" tight>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'baseline', justifyContent: 'space-between', paddingBottom: 24, marginBottom: 24, borderBottom: '1px solid var(--border-subtle)' }}>
           <Body>Looking for a brand partnership? Sponsorship, activation and content are a separate, commercial route.</Body>
-          <TextLink onClick={() => go('Brand Partnerships')}>Partner with Cancer Staged</TextLink>
+          <TextLink onClick={() => go('Support Us')}>See all ways to support</TextLink>
         </div>
         <Body size="caption" style={{ color: 'var(--text-secondary)', maxWidth: '90ch' }}>This is general awareness only and does not constitute tax, legal, financial or estate-planning advice. The Cancer Staged Foundation, registered charity No. 1209616. Content subject to change.</Body>
       </Section>
     </div>
   );
 }
-function BrandPartnershipsScreen({ go }) {
-  const { SectionHeading, Eyebrow, Button, TransparencyList, TextLink } = PgDS;
+function SupportUsScreen({ go }) {
+  const { SectionHeading, Eyebrow, Button, TransparencyList } = PgDS;
   const D = window.CS_DATA;
+  const email = D.partnershipEmail || D.contactEmail;
+  const mailto = (s) => 'mailto:' + email + '?subject=' + encodeURIComponent(s);
+  const merch = D.merchUrl || '';
+  const donate = () => go('Donate');
+  const ways = [
+    ['Donate', 'Make a one-off or monthly gift.', [['Donate', donate]]],
+    ['Come to a show', 'Buy a ticket for one of our UK shows. Every ticket helps fund UK cancer charities.', [['Find tickets', () => go('Events')], ['Donate', donate, 'secondary']]],
+    ['Match your gift', 'Ask your employer to match your donation through their matched giving scheme.', [['Donate', donate]]],
+    ['Give in memory', 'Make a donation in memory of a loved one affected by cancer.', [['Donate', donate]]],
+    ['Leave a gift in your will', 'A legacy gift keeps the music playing for years to come. We recommend taking independent financial advice.', [['Contact us', mailto('Legacy gift')]]],
+    ['Buy merchandise', 'Shop online or at our shows. 50% of all merchandise sales go directly into grants.', [[merch ? 'Merch store' : 'Store opening soon', merch || null]]],
+  ];
   const routes = [
     ['Sponsor a show', 'Live Event Sponsor', 'Presenting partner of a show, a city or the UK Showcase Tour.', ['Brand on stage, tickets, livestream and social', 'Hospitality and artist introductions', 'Film and photography for your channels', 'A post-show impact report']],
     ['Partner across the season', 'Founding Brand Partner', 'Partner with Cancer Staged across the whole season, from the first show.', ['All core supporter and event-partner benefits', 'Founding partner recognition', 'Category exclusivity across the season', 'Private events, rehearsals and artist moments', 'Full impact reporting and an annual review']],
-    ['Support Cancer Staged another way', 'Friend of Cancer Staged', 'Support in kind or at a level that fits, from day one.', ['Product, equipment, services or activation', 'Supporter recognition online and at shows', 'Staff engagement and ticket offers', 'Seasonal updates on impact']],
+    ['Support us another way', 'Friend of Cancer Staged', 'Support in kind or at a level that fits, from day one.', ['Product, equipment, services or activation', 'Supporter recognition online and at shows', 'Staff engagement and ticket offers', 'Seasonal updates on impact']],
   ];
   const why = [
     ['Visible social impact', 'Be seen funding UK cancer charities in every city, with the impact reported show by show.'],
@@ -296,12 +316,29 @@ function BrandPartnershipsScreen({ go }) {
     ['Category exclusivity', 'Sole status in your category, agreed as part of a season partnership.'],
     ['New money, not diverted money', 'Ticket income comes from entertainment spend, so your support grows what reaches UK cancer charities rather than shifting existing donations.'],
   ];
-  const mail = 'mailto:' + (D.partnershipEmail || D.contactEmail) + '?subject=' + encodeURIComponent('Brand partnership');
+  const act = ([label, to, v]) => !to
+    ? <span key={label} style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 15, color: 'var(--text-secondary)', paddingBlock: 10 }}>{label}</span>
+    : typeof to === 'string'
+      ? <Button key={label} size="md" variant={v || 'primary'} arrow href={to}>{label}</Button>
+      : <Button key={label} size="md" variant={v || 'primary'} arrow onClick={to}>{label}</Button>;
   return (
     <div>
-      <PageIntro eyebrow="Brand partnerships" title="Partner with Cancer Staged." lead="For brands that want to stand with UK cancer charities, in the rooms where live music happens. Every partnership is tailored to you." />
+      <PageIntro eyebrow="Support us" title="Be loud for a reason." lead="Whether you're a fan, a business or a brand, there's a way to help live music fund UK cancer charities." />
+      <Section bg="bone">
+        <SectionHeading eyebrow="For individuals" title="Six ways to give." size="h1" style={{ marginBottom: 56 }} />
+        <div className="cs-grid cs-collapse-md" style={{ rowGap: 56 }}>
+          {ways.map(([t, b, acts], i) => (
+            <div key={t} style={{ gridColumn: 'span 4', borderTop: 'var(--border-rule) solid var(--cs-ink)', paddingTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: 14, fontWeight: 500, color: '#B23B08' }}>{String(i + 1).padStart(2, '0')}</span>
+              <h3 style={{ margin: 0, fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h3)', lineHeight: 'var(--lh-h3)', letterSpacing: 'var(--ls-h3)' }}>{t}</h3>
+              <Body size="body-s" style={{ flex: '1 1 auto' }}>{b}</Body>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 8 }}>{acts.map(act)}</div>
+            </div>
+          ))}
+        </div>
+      </Section>
       <Section bg="ink">
-        <SectionHeading eyebrow="Three ways in" title="Choose how you show up." size="h1" tone="dark" style={{ marginBottom: 56 }} />
+        <SectionHeading eyebrow="For corporates and brands" title="Three ways in." size="h1" tone="dark" lead="Commercial partnerships, each shaped around your priorities, with cash, product or activation in kind." style={{ marginBottom: 56 }} />
         <div className="cs-grid cs-collapse-md" style={{ rowGap: 48 }}>
           {routes.map(([route, name, summary, items]) => (
             <div key={name} style={{ gridColumn: 'span 4', borderTop: 'var(--border-rule) solid var(--cs-orange)', paddingTop: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -315,40 +352,35 @@ function BrandPartnershipsScreen({ go }) {
           ))}
         </div>
       </Section>
-      <Section bg="bone">
+      <Section bg="white">
         <div className="cs-grid" style={{ marginBottom: 56 }}>
-          <div style={{ gridColumn: '1 / span 6' }}><SectionHeading eyebrow="Why partner" title="What your brand gets." size="h1" /></div>
-          <div style={{ gridColumn: '8 / span 5' }}><Body>Shaped around your priorities, with cash, product or activation in kind. Detailed options and commercials are set out in a tailored proposal.</Body></div>
+          <div style={{ gridColumn: '1 / span 6' }}><SectionHeading eyebrow="Why partner" title="What your business gets." size="h1" /></div>
+          <div style={{ gridColumn: '8 / span 5' }}><Body>Detailed options and commercials are set out in a tailored proposal.</Body></div>
         </div>
         <TransparencyList items={why.map(([title, body]) => ({ title, body }))} />
       </Section>
-      <Section bg="white">
-        <div className="cs-grid cs-collapse-md" style={{ rowGap: 40 }}>
-          <div style={{ gridColumn: '1 / span 4' }}><SectionHeading eyebrow="Partnership or giving?" title="Two different ways in." size="h2" /></div>
-          <div style={{ gridColumn: '6 / span 3', borderTop: 'var(--border-rule) solid var(--cs-ink)', paddingTop: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h4)', letterSpacing: 'var(--ls-h4)' }}>Brand partnership</div>
-            <Body size="body-s">Commercial. Sponsorship, activation and content, agreed in a tailored proposal around your marketing goals.</Body>
-          </div>
-          <div style={{ gridColumn: '10 / span 3', borderTop: 'var(--border-rule) solid var(--cs-ink)', paddingTop: 20, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: 'var(--type-h4)', letterSpacing: 'var(--ls-h4)' }}>Founding Circle</div>
-            <Body size="body-s">Philanthropic and corporate giving (CSR). Founding gifts from £10K that build the charity's capacity.</Body>
-            <TextLink onClick={() => go('Founding Circle')}>Explore the Founding Circle</TextLink>
+      <Section bg="bone">
+        <div className="cs-grid cs-collapse-md" style={{ alignItems: 'end', rowGap: 32 }}>
+          <div style={{ gridColumn: '1 / span 6' }}><SectionHeading eyebrow="Philanthropic and corporate giving" title="The Founding Circle." size="h1" /></div>
+          <div style={{ gridColumn: '8 / span 5', display: 'flex', flexDirection: 'column', gap: 20, alignItems: 'flex-start' }}>
+            <Body>Founding gifts from £10K, for individuals and companies giving philanthropically or through CSR, that build the charity's capacity to grow.</Body>
+            <Button variant="secondary" arrow onClick={() => go('Founding Circle')}>Explore the Founding Circle</Button>
           </div>
         </div>
       </Section>
       <Section bg="orange">
         <div className="cs-grid" style={{ alignItems: 'end', rowGap: 32 }}>
           <div style={{ gridColumn: '1 / span 7', display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <SectionHeading eyebrow="Start a conversation" title="Let's build your partnership." size="h1" tone="orange" />
-            <Body>Tell us about your brand and goals, and we'll come back with a tailored proposal.</Body>
+            <SectionHeading eyebrow="Start a conversation" title="Let's talk." size="h1" tone="orange" />
+            <Body>Tell us how you'd like to help, and we'll come back to you.</Body>
           </div>
           <div style={{ gridColumn: '9 / span 4', display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-start' }}>
-            <Button size="lg" arrow href={mail}>Talk to us</Button>
-            <span style={{ fontSize: 14 }}>{D.partnershipEmail || D.contactEmail}</span>
+            <Button size="lg" arrow href={mailto('Supporting Cancer Staged')}>Talk to us</Button>
+            <span style={{ fontSize: 14 }}>{email}</span>
           </div>
         </div>
       </Section>
     </div>
   );
 }
-Object.assign(window, { AboutScreen, WhatWeDoScreen, TransparencyScreen, PartnersScreen, ContactScreen, FoundingCircleScreen, BrandPartnershipsScreen });
+Object.assign(window, { AboutScreen, WhatWeDoScreen, TransparencyScreen, PartnersScreen, ContactScreen, FoundingCircleScreen, SupportUsScreen, BrandPartnershipsScreen: SupportUsScreen });

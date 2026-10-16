@@ -25,10 +25,10 @@ collections:
             name: "launch"
             widget: object
             fields:
-              - {label: "Day (e.g. 11)", name: "day", widget: string}
-              - {label: "Month (e.g. Nov)", name: "month", widget: string}
+              - {label: "Day (e.g. 01)", name: "day", widget: string}
+              - {label: "Month (e.g. Dec)", name: "month", widget: string}
               - {label: "Year", name: "year", widget: string}
-              - {label: "Weekday (e.g. Wed)", name: "weekday", widget: string}
+              - {label: "Weekday (e.g. Tue)", name: "weekday", widget: string}
               - {label: "Title", name: "title", widget: string}
               - {label: "Venue", name: "venue", widget: string}
               - {label: "Location", name: "location", widget: string}
@@ -137,22 +137,16 @@ collections:
         name: "partners"
         file: "content/partners.json"
         fields:
-          - label: "Charity partners"
+          - label: "Partners (venues, charities, sponsors, brands)"
             name: "items"
             widget: list
             summary: "{{fields.name}}"
+            hint: "Shown on the Partners page. Add new partners as they're confirmed."
             fields:
               - {label: "Name", name: "name", widget: string}
-              - {label: "Region", name: "region", widget: string}
+              - {label: "Type (e.g. Venue partner)", name: "region", widget: string}
               - {label: "Logo", name: "logo", widget: image, required: false}
-          - label: "Friends of Cancer Staged"
-            name: "friends"
-            widget: list
-            summary: "{{fields.name}}"
-            fields:
-              - {label: "Name", name: "name", widget: string}
-              - {label: "Label (e.g. Friend of Cancer Staged)", name: "region", widget: string}
-              - {label: "Logo", name: "logo", widget: image, required: false}
+              - {label: "Website link", name: "url", widget: string, required: false}
 
       - label: "Donations"
         name: "donation"
@@ -215,8 +209,9 @@ collections:
         file: "content/settings.json"
         fields:
           - {label: "General contact email (Contact and policy pages)", name: "contactEmail", widget: string}
-          - {label: "Partnerships email (Founding Circle page)", name: "partnershipEmail", widget: string}
+          - {label: "Partnerships email (Support Us and Founding Circle pages)", name: "partnershipEmail", widget: string}
           - {label: "Default ticket link", name: "ticketsUrl", widget: string, required: false}
+          - {label: "Merchandise store link (Support Us page)", name: "merchUrl", widget: string, required: false}
           - {label: "Charity number", name: "charityNumber", widget: string}
           - {label: "Instagram URL", name: "instagram", widget: string, required: false}
           - {label: "YouTube URL", name: "youtube", widget: string, required: false}
