@@ -32,6 +32,9 @@ collections:
               - {label: "Title", name: "title", widget: string}
               - {label: "Venue", name: "venue", widget: string}
               - {label: "Location", name: "location", widget: string}
+              - {label: "Doors time (24-hour, e.g. 18:30)", name: "doorsTime", widget: string, required: false, hint: "Used for Google event listings"}
+              - {label: "Street address", name: "address", widget: string, required: false}
+              - {label: "Postcode", name: "postcode", widget: string, required: false}
               - {label: "Local charity partner", name: "charity", widget: string, hint: "e.g. London charity TBC"}
               - {label: "Ticket link", name: "ticketUrl", widget: string, required: false, hint: "Eventbrite / See Tickets URL"}
               - {label: "Image", name: "img", widget: image, required: false}

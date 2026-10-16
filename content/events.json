@@ -9,7 +9,10 @@
     "location": "Islington, London",
     "charity": "London charity TBC",
     "img": "union-chapel-v2",
-    "ticketUrl": ""
+    "ticketUrl": "",
+    "doorsTime": "18:30",
+    "address": "Compton Terrace",
+    "postcode": "N1 2UN"
   },
   "route": [
     {

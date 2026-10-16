@@ -43,6 +43,17 @@ The Contact page sends messages through Netlify Forms.
 
 `contact@cancerstaged.org` itself is a mailbox at your domain provider (123-reg). Make sure it is set up, then send it a test email from an outside address.
 
+## Search engines (SEO)
+Included: page titles and descriptions for every page, canonical links, social sharing previews, `sitemap.xml`, `robots.txt` (the /admin area is hidden from search), charity details for Google (charity no., socials, founders) and a Google event listing for the launch night, built from the Events content.
+
+One-time setup:
+1. Go to **search.google.com/search-console**, click **Add property** and choose **Domain**. Enter `cancerstaged.org`.
+2. Google gives you a TXT record. In 123-reg, open **Manage DNS** for the domain and add it as a **TXT** record with host `@`. Back in Search Console, click **Verify** (can take up to a few hours).
+3. In Search Console, open **Sitemaps**, enter `sitemap.xml` and click **Submit**.
+4. Check the launch listing at **search.google.com/test/rich-results** with `https://cancerstaged.org/`.
+
+When tickets go on sale, add the ticket link to the launch night in the content manager - it's added to the Google listing automatically.
+
 ## Donations and tickets
 - All donations go through **JustGiving** (https://www.justgiving.com/charity/thecancerstagedfoundation). The Donate page sends people there and shows a QR code. The site itself takes no payments.
 - The QR code is a fixed image at `assets/qr/justgiving-qr.png` (and `.svg` for print). Use the same files in newsletters, socials and email footers.
