@@ -15,6 +15,7 @@
 .cs-grid>*{grid-column:1/-1!important;grid-row:auto!important}
 .cs-stack-sm{flex-direction:column!important;align-items:flex-start!important}
 .cs-hide-sm{display:none!important}
+.cs-first-sm{order:-1}
 .cs-scroll-sm{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:var(--gutter)!important;margin-inline:calc(var(--page-margin)*-1);padding-inline:var(--page-margin)}
 .cs-scroll-sm>*{flex:0 0 82%;scroll-snap-align:start}
 }

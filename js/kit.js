@@ -71,11 +71,34 @@ function BioDialog({
   person,
   onClose
 }) {
+  const pic = React.useRef(null),
+    box = React.useRef(null),
+    bio = React.useRef(null);
   React.useEffect(() => {
     if (!person) return;
     const k = e => e.key === 'Escape' && onClose();
     window.addEventListener('keydown', k);
     return () => window.removeEventListener('keydown', k);
+  }, [person]);
+  React.useLayoutEffect(() => {
+    if (!person) return;
+    const fit = () => {
+      const p = pic.current,
+        b = box.current,
+        t = bio.current;
+      if (!p || !b || !t) return;
+      let s = 17;
+      t.style.fontSize = s + 'px';
+      if (b.offsetTop > p.offsetTop + 8) return;
+      while (b.scrollHeight > p.offsetHeight + 1 && s > 12) {
+        s -= 0.5;
+        t.style.fontSize = s + 'px';
+      }
+    };
+    fit();
+    if (document.fonts) document.fonts.ready.then(fit);
+    window.addEventListener('resize', fit);
+    return () => window.removeEventListener('resize', fit);
   }, [person]);
   if (!person) return null;
   const D = window.CS_DATA;
@@ -103,9 +126,11 @@ function BioDialog({
       color: 'var(--text-primary)',
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+      alignItems: 'start',
       position: 'relative'
     }
   }, React.createElement("div", {
+    ref: pic,
     style: {
       aspectRatio: '1/1',
       background: person.img ? 'url(' + D.img(person.img) + ') center/cover' : 'var(--bg-bone)',
@@ -118,11 +143,13 @@ function BioDialog({
       color: 'var(--text-secondary)'
     }
   }, !person.img && 'Portrait to follow'), React.createElement("div", {
+    ref: box,
     style: {
-      padding: 32,
+      padding: '28px 32px',
       display: 'flex',
       flexDirection: 'column',
-      gap: 12
+      gap: 10,
+      boxSizing: 'border-box'
     }
   }, React.createElement("span", {
     style: {
@@ -131,20 +158,27 @@ function BioDialog({
       letterSpacing: '.08em',
       textTransform: 'uppercase',
       color: 'var(--cs-orange)',
-      fontWeight: 600
+      fontWeight: 600,
+      paddingRight: 36
     }
   }, person.role), React.createElement("h2", {
     style: {
       margin: 0,
       fontFamily: 'var(--font-heading)',
       fontWeight: 600,
-      fontSize: 'var(--type-h2)',
-      lineHeight: 'var(--lh-h2)',
-      letterSpacing: 'var(--ls-h2)'
+      fontSize: 'var(--type-h3)',
+      lineHeight: 'var(--lh-h3)',
+      letterSpacing: 'var(--ls-h3)'
     }
-  }, person.name), React.createElement(Body, {
+  }, person.name), React.createElement("p", {
+    ref: bio,
     style: {
-      color: person.bio ? 'var(--text-primary)' : 'var(--text-secondary)'
+      margin: 0,
+      fontFamily: 'var(--font-body)',
+      fontSize: 17,
+      lineHeight: 1.55,
+      color: person.bio ? 'var(--text-primary)' : 'var(--text-secondary)',
+      textWrap: 'pretty'
     }
   }, person.bio || 'Biography to follow.')), React.createElement("button", {
     onClick: onClose,

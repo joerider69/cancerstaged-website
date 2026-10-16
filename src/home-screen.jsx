@@ -72,7 +72,7 @@ function HomeScreen({ go }) {
       <Section bg="aubergine" flush>
         <div className="cs-grid" style={{ columnGap: 0 }}>
           <div style={{ gridColumn: '1 / span 6', minHeight: 640, background: 'url(' + D.img('founders-why') + ') center 20%/cover' }}></div>
-          <div style={{ gridColumn: '7 / span 6', padding: 'var(--section-y) var(--page-margin)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 32 }}>
+          <div className="cs-first-sm" style={{ gridColumn: '7 / span 6', padding: 'var(--section-y) var(--page-margin)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 32 }}>
             <SectionHeading eyebrow="Why we started" title="Two second chances." accent="One mission." caps size="display-l" tone="dark" />
             <Body tone="dark" style={{ maxWidth: '44ch' }}>Our founders started this while living with the very thing we're fighting. Cancer Staged was born from two personal battles with life and death - and a belief in the power of music to bring people together.</Body>
             <div><Button variant="secondary" tone="dark" arrow onClick={() => go('About')}>Read our story</Button></div>

@@ -234,6 +234,7 @@ function HomeScreen({
       background: 'url(' + D.img('founders-why') + ') center 20%/cover'
     }
   }), React.createElement("div", {
+    className: "cs-first-sm",
     style: {
       gridColumn: '7 / span 6',
       padding: 'var(--section-y) var(--page-margin)',
