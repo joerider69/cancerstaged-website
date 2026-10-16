@@ -1,0 +1,46 @@
+/* Typography v1.1 — three voices:
+   Anton (poster caps, ≤6-word statements) · Gilroy (geometric headings, leads, UI — echoes the rounded wordmark; Outfit fallback) · IBM Plex Sans (reading). Desktop on :root; tablet/mobile below. */
+:root{
+--font-display:'Anton','Impact','Arial Narrow',sans-serif;
+--font-heading:'Gilroy','Outfit','Avenir Next','Helvetica Neue',sans-serif;
+--font-sans:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+--font-body:var(--font-sans);
+
+/* Display — Anton, uppercase */
+--type-display-xl:128px;--lh-display-xl:.88;/* @kind font */--ls-display-xl:0;/* @kind font */
+--type-display-l:88px;--lh-display-l:.9;/* @kind font */--ls-display-l:0;/* @kind font */
+/* Headings — Outfit 600, sentence case, full stop */
+--type-h1:68px;--lh-h1:1;/* @kind font */--ls-h1:-.035em;/* @kind font */
+--type-h2:50px;--lh-h2:1.04;/* @kind font */--ls-h2:-.03em;/* @kind font */
+--type-h3:32px;--lh-h3:1.15;/* @kind font */--ls-h3:-.02em;/* @kind font */
+--type-h4:22px;--lh-h4:1.3;/* @kind font */--ls-h4:-.01em;/* @kind font */
+/* Lead — Outfit 400 (the reference's "Product Designer and Developer…" voice) */
+--type-body-l:28px;--lh-body-l:1.3;/* @kind font */--ls-body-l:-.015em;/* @kind font */
+/* Reading — Plex Sans, airy */
+--type-body:18px;--lh-body:1.7;/* @kind font */
+--type-body-s:15px;--lh-body-s:1.65;/* @kind font */
+--type-caption:13px;--lh-caption:1.5;/* @kind font */
+/* UI — Outfit */
+--type-nav:16px;
+--type-button:15px;
+/* Utility — Gilroy Medium caps (dates, meta, categories) */
+--type-eyebrow:12px;--ls-eyebrow:.16em;/* @kind font */
+--type-meta:13px;--ls-meta:.06em;/* @kind font */
+/* Numerals — Outfit */
+--type-date:48px;--lh-date:.95;/* @kind font */
+--type-quote:44px;--lh-quote:1.12;/* @kind font */--ls-quote:-.025em;/* @kind font */
+--type-stat:128px;--lh-stat:.85;/* @kind font */--ls-stat:-.05em;/* @kind font */
+
+--weight-light:300;--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;
+--measure-body:64ch;/* @kind spacing */
+--measure-lead:30ch;/* @kind spacing */
+--measure-heading:16ch;/* @kind spacing */
+}
+@media (max-width:1023px){:root{
+--type-display-xl:96px;--type-display-l:68px;--type-h1:54px;--type-h2:40px;--type-h3:27px;--type-h4:20px;
+--type-body-l:24px;--type-body:17px;--type-date:40px;--type-quote:36px;--type-stat:100px;
+}}
+@media (max-width:767px){:root{
+--type-display-xl:64px;--type-display-l:50px;--type-h1:40px;--type-h2:32px;--type-h3:24px;--type-h4:19px;
+--type-body-l:21px;--type-body:16px;--type-body-s:15px;--type-caption:12px;--type-date:34px;--type-quote:28px;--type-stat:76px;--type-eyebrow:11px;--type-meta:12px;
+}}

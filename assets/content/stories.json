@@ -1,0 +1,106 @@
+{
+  "items": [
+    {
+      "id": "union-chapel",
+      "img": "union-chapel-4",
+      "category": "Venues",
+      "date": "06 Oct 2026",
+      "readTime": "4 min",
+      "title": "Why Union Chapel?",
+      "excerpt": "A former church turned one of London’s most loved music venues felt like the right place to bring the UK cancer community together for the first time.",
+      "body": [
+        "On Tuesday 1 December 2026, Cancer Staged stages its first show at Union Chapel in Islington, London, a landmark venue for live music.",
+        "A former church, the building has hosted some of the most intimate nights in London’s live music history. For a charity built on the belief that music can bring people together and do real good, it felt like the only place to start."
+      ],
+      "quote": "Some of the best nights of your life haven’t happened yet.",
+      "after": "It’s the first date in a route that continues with our 2027 UK Showcase Tour across Bristol, Brighton, Cardiff, Nottingham, Sheffield, Leeds, Manchester and Liverpool, each paired with a local cancer charity partner."
+    },
+    {
+      "id": "founders",
+      "img": "founders-real.jpg",
+      "hero": "founders-real.jpg",
+      "heroPos": "center 12%",
+      "category": "People",
+      "date": "01 Oct 2026",
+      "readTime": "3 min",
+      "title": "Meet the founders: Mark and Steve.",
+      "excerpt": "There’s a moment at a great gig when the whole room comes together. That’s what we’re building.",
+      "dialogue": [
+        {
+          "speaker": "Mark",
+          "text": "There’s a moment at a great gig when the whole room comes together, band and crowd as one. Nothing else feels quite like it."
+        },
+        {
+          "speaker": "Steve",
+          "text": "That’s what we’re building. Live shows in real venues, in towns and cities across the UK, from the grassroots rooms where new bands are made to the big national stages."
+        },
+        {
+          "speaker": "Mark",
+          "text": "And I know exactly what music can do for a person. In 2018, I was diagnosed with stage four cancer. Music helped me through some of the toughest days and I saw what it did for others going through the same thing."
+        },
+        {
+          "speaker": "Mark",
+          "text": "That’s why we started Cancer Staged. Every ticket, every gig, raises money for the whole UK cancer community, and half of what each show makes stays with a local cancer charity in that city."
+        },
+        {
+          "speaker": "Steve",
+          "text": "We’ll be hosting loads of gigs - and helping as many people as we can affected by cancer."
+        },
+        {
+          "speaker": "Mark",
+          "text": "Join us… help make a change to something that matters to us all."
+        }
+      ],
+      "pull": {
+        "name": "Mark",
+        "quote": "Music helped me through some of the toughest days."
+      },
+      "bios": [
+        {
+          "name": "Mark Rooney",
+          "role": "Co-founder",
+          "image": "portrait-mark",
+          "bio": "A former professional footballer turned music events specialist. Mark was diagnosed with Stage 4 kidney cancer in 2018. He has channelled his experience of music’s healing power in cancer wards into Cancer Staged."
+        },
+        {
+          "name": "Steve Bond",
+          "role": "Co-founder",
+          "image": "portrait-steve",
+          "bio": "A serial entrepreneur with a career spanning retail, sports and the music industry. Steve nearly lost his life to a sudden cardiac arrest, saved by his wife’s quick-thinking CPR. That second chance brought him to Cancer Staged."
+        }
+      ]
+    },
+    {
+      "id": "chris",
+      "img": "chris-standard.jpg",
+      "hero": "chris-letterbox.jpg",
+      "category": "People",
+      "date": "01 Nov 2026",
+      "readTime": "2 min",
+      "title": "Remembering Chris.",
+      "excerpt": "One of our original founders, and a big part of why we’re here.",
+      "body": [
+        "Chris was one of the original founders of Cancer Staged. He sadly passed away in November 2025.",
+        "He was vital to our story and to our ambition. Much of what this charity has become, the belief that live music can bring people together and do real good across the UK cancer community, carries his fingerprints.",
+        "Our launch night at Union Chapel on 1 December 2026 falls around the first anniversary of his passing. We’ll be thinking of him in the room, and every show that follows is part of what he helped start."
+      ],
+      "quote": "Every show that follows is part of what he helped start."
+    },
+    {
+      "id": "grassroots",
+      "img": "grassroots-room",
+      "category": "Venues",
+      "date": "14 Sep 2026",
+      "readTime": "4 min",
+      "title": "The grassroots rooms where artists are made.",
+      "excerpt": "Why we start small, on purpose.",
+      "body": [
+        "New artists aren’t made on arena stages. They’re made in grassroots rooms: the small, independent venues in towns and cities across the UK where bands play their first shows to their first crowds.",
+        "Those rooms are under real pressure. More than 170 UK towns no longer see regular touring shows, and over half of local venues made no profit last year.",
+        "That’s why our 2027 UK Showcase Tour starts there, across Bristol, Brighton, Cardiff, Nottingham, Sheffield, Leeds, Manchester and Liverpool. Each show brings an audience back into a local venue and pairs it with a local cancer charity partner, so half of what the night makes stays in that city.",
+        "As the audience grows, we add flagship shows in bigger venues. But the grassroots rooms are where it begins, on purpose."
+      ],
+      "quote": "The grassroots rooms are where it begins, on purpose."
+    }
+  ]
+}

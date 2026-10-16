@@ -1,0 +1,61 @@
+/* Spacing (4px base), grid, radius, motion, breakpoints */
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:40px;--space-8:48px;--space-9:64px;--space-10:80px;--space-11:96px;--space-12:120px;--space-13:160px;
+
+/* Grid — desktop 1440+ */
+--page-max:1360px;/* @kind spacing */
+--content-max:1280px;/* @kind spacing */
+--page-margin:80px;/* @kind spacing */
+--grid-columns:12;/* @kind other */
+--gutter:24px;/* @kind spacing */
+--section-y:144px;/* @kind spacing */
+--section-y-tight:96px;/* @kind spacing */
+--header-h:80px;/* @kind spacing */
+--header-h-scrolled:64px;/* @kind spacing */
+
+/* Radius — restrained; images and sections are square */
+--radius-none:0;
+--radius-control:6px;
+--radius-tile:8px;
+--radius-round:999px;
+
+/* Borders */
+--border-hairline:1px;/* @kind other */
+--border-control:1.5px;/* @kind other */
+--border-rule:2px;/* @kind other */
+
+/* Shadow — functional only (menus/sheets) */
+--shadow-none:none;
+--shadow-overlay:0 16px 40px rgba(17,17,17,.24);
+
+/* Motion */
+--ease-standard:cubic-bezier(.2,0,0,1);/* @kind other */
+--ease-out:cubic-bezier(.16,1,.3,1);/* @kind other */
+--ease-in-out:cubic-bezier(.65,0,.35,1);/* @kind other */
+--dur-instant:100ms;/* @kind other */
+--dur-fast:160ms;/* @kind other */
+--dur-base:240ms;/* @kind other */
+--dur-slow:480ms;/* @kind other */
+--dur-reveal:720ms;/* @kind other */
+--move-s:4px;/* @kind spacing */
+--move-m:16px;/* @kind spacing */
+--move-l:32px;/* @kind spacing */
+--scale-hover:1.03;/* @kind other */
+
+/* Breakpoints (reference — CSS media queries can't read vars) */
+--bp-mobile:390px;/* @kind other */
+--bp-tablet:768px;/* @kind other */
+--bp-laptop:1024px;/* @kind other */
+--bp-desktop:1440px;/* @kind other */
+}
+@media (max-width:1439px){:root{--page-margin:48px;--section-y:120px;--section-y-tight:80px}}
+@media (max-width:1023px){:root{--page-margin:32px;--gutter:20px;--section-y:96px;--section-y-tight:64px;--header-h:72px;--header-h-scrolled:60px}}
+@media (max-width:767px){:root{--page-margin:20px;--gutter:16px;--section-y:72px;--section-y-tight:48px;--header-h:64px;--header-h-scrolled:56px}}
+@media (prefers-reduced-motion:reduce){:root{
+--dur-fast:0ms;/* @kind other */
+--dur-base:0ms;/* @kind other */
+--dur-slow:0ms;/* @kind other */
+--dur-reveal:0ms;/* @kind other */
+--move-s:0px;--move-m:0px;--move-l:0px;
+--scale-hover:1;/* @kind other */
+}}

@@ -1,0 +1,30 @@
+{
+  "home": {
+    "image": "hero-home-v4",
+    "title": "Live music.",
+    "accent": "Real impact.",
+    "lead": "Bringing artists, audiences and cancer charities together across the UK.",
+    "ctaTitle": "Some of the best nights of your life haven’t happened yet."
+  },
+  "events": {
+    "image": "events-hero",
+    "eyebrow": "Events · Season 01",
+    "title": "Unforgettable nights",
+    "accent": "for a brighter tomorrow.",
+    "lead": "One launch night in December, then our UK showcase tour in 2027. Every show pairs national reach with a local cancer charity partner."
+  },
+  "whatwedo": {
+    "image": "pay-desk-v3",
+    "eyebrow": "What we do",
+    "title": "A united front",
+    "accent": "for UK cancer charities.",
+    "lead": "We raise funds through live music and distribute them across the sector, so UK cancer charities can gain."
+  },
+  "about": {
+    "image": "founders-v3",
+    "eyebrow": "Our story",
+    "title": "Two second chances.",
+    "accent": "One mission.",
+    "lead": "A UK charity using the power of live music to unite artists, audiences and communities in support of everyone affected by cancer."
+  }
+}

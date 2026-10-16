@@ -1,0 +1,219 @@
+# Decap CMS configuration - Cancer Staged Foundation
+backend:
+  name: git-gateway
+  branch: main
+# Uncomment for local editing: run `npx decap-server` in the project folder
+# local_backend: true
+
+site_url: https://cancerstaged.org
+display_url: https://cancerstaged.org
+logo_url: /assets/logo/logo-v2-orange.png
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+publish_mode: editorial_workflow
+
+collections:
+  - name: "content"
+    label: "Site content"
+    editor: {preview: false}
+    files:
+      - label: "Events"
+        name: "events"
+        file: "content/events.json"
+        fields:
+          - label: "Launch night"
+            name: "launch"
+            widget: object
+            fields:
+              - {label: "Day (e.g. 01)", name: "day", widget: string}
+              - {label: "Month (e.g. Dec)", name: "month", widget: string}
+              - {label: "Year", name: "year", widget: string}
+              - {label: "Weekday (e.g. Tue)", name: "weekday", widget: string}
+              - {label: "Title", name: "title", widget: string}
+              - {label: "Venue", name: "venue", widget: string}
+              - {label: "Location", name: "location", widget: string}
+              - {label: "Local charity partner", name: "charity", widget: string, hint: "e.g. London charity TBC"}
+              - {label: "Ticket link", name: "ticketUrl", widget: string, required: false, hint: "Eventbrite / See Tickets URL"}
+              - {label: "Image", name: "img", widget: image, required: false}
+          - label: "Programme (route)"
+            name: "route"
+            widget: list
+            summary: "{{fields.day}} {{fields.month}} - {{fields.city}}"
+            fields:
+              - {label: "Day (e.g. 04, or Feb while the date is TBC)", name: "day", widget: string}
+              - {label: "Line under the day (e.g. Feb 2027, or 2027)", name: "month", widget: string}
+              - {label: "Month (short)", name: "mon", widget: string}
+              - {label: "Year", name: "year", widget: string}
+              - {label: "Weekday (e.g. Thu, or Date TBC)", name: "weekday", widget: string}
+              - {label: "City", name: "city", widget: string}
+              - {label: "Venue", name: "venue", widget: string}
+              - {label: "Local charity partner", name: "charity", widget: string, hint: "Use TBC until confirmed"}
+              - {label: "Status", name: "status", widget: select, options: ["On sale", "Details soon", "Sold out"]}
+              - {label: "Ticket link", name: "ticketUrl", widget: string, required: false}
+              - {label: "Image", name: "img", widget: image, required: false}
+
+      - label: "Stories"
+        name: "stories"
+        file: "content/stories.json"
+        fields:
+          - label: "Stories"
+            name: "items"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "ID (url-safe, unique)", name: "id", widget: string}
+              - {label: "Title", name: "title", widget: string}
+              - {label: "Category", name: "category", widget: select, options: ["Venues", "People", "Impact", "Artists"]}
+              - {label: "Date (e.g. 06 Oct 2026)", name: "date", widget: string}
+              - {label: "Read time (e.g. 4 min)", name: "readTime", widget: string}
+              - {label: "Excerpt", name: "excerpt", widget: text}
+              - {label: "Card image", name: "img", widget: image, required: false}
+              - {label: "Story header image", name: "hero", widget: image, required: false}
+              - {label: "Header image position", name: "heroPos", widget: string, required: false, hint: "e.g. center 12% (lower % shows more of the top)"}
+              - label: "Conversation (optional)"
+                name: "dialogue"
+                widget: list
+                required: false
+                summary: "{{fields.speaker}}"
+                fields:
+                  - {label: "Speaker", name: "speaker", widget: string}
+                  - {label: "Text", name: "text", widget: text}
+              - {label: "Story paragraphs (used when there is no conversation)", name: "body", widget: list, required: false, field: {label: "Paragraph", name: "paragraph", widget: text}}
+              - {label: "Highlight quote (orange band)", name: "quote", widget: string, required: false}
+              - {label: "Closing paragraph (after the quote)", name: "after", widget: text, required: false}
+              - label: "Pull quote for conversations (optional)"
+                name: "pull"
+                widget: object
+                required: false
+                fields:
+                  - {label: "Name", name: "name", widget: string, required: false}
+                  - {label: "Quote", name: "quote", widget: string, required: false}
+              - label: "Founder bios (optional)"
+                name: "bios"
+                widget: list
+                required: false
+                summary: "{{fields.name}}"
+                fields:
+                  - {label: "Name", name: "name", widget: string}
+                  - {label: "Role", name: "role", widget: string}
+                  - {label: "Square portrait", name: "image", widget: image, required: false}
+                  - {label: "Bio", name: "bio", widget: text}
+
+      - label: "Team & trustees"
+        name: "people"
+        file: "content/people.json"
+        fields:
+          - label: "Founders & leadership"
+            name: "founders"
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Name", name: "name", widget: string}
+              - {label: "Role", name: "role", widget: string}
+              - {label: "Bio", name: "bio", widget: text}
+              - {label: "Square portrait", name: "image", widget: image, required: false}
+          - label: "Trustees"
+            name: "trustees"
+            widget: list
+            summary: "{{fields.name}} - {{fields.role}}"
+            hint: "Shown on About and Transparency. Click-through opens the bio."
+            fields:
+              - {label: "Name", name: "name", widget: string}
+              - {label: "Role", name: "role", widget: string}
+              - {label: "Square portrait", name: "image", widget: image, required: false}
+              - {label: "Bio", name: "bio", widget: text, required: false, hint: "Leave empty to show 'Biography to follow.'"}
+          - label: "Advisors"
+            name: "advisors"
+            widget: list
+            summary: "{{fields.name}} - {{fields.role}}"
+            hint: "Shown on Transparency, after the trustees"
+            fields:
+              - {label: "Name", name: "name", widget: string}
+              - {label: "Role", name: "role", widget: string}
+              - {label: "Square portrait", name: "image", widget: image, required: false}
+              - {label: "Bio", name: "bio", widget: text, required: false}
+
+      - label: "Partners"
+        name: "partners"
+        file: "content/partners.json"
+        fields:
+          - label: "Partners (venues, charities, sponsors, brands)"
+            name: "items"
+            widget: list
+            summary: "{{fields.name}}"
+            hint: "Shown on the Partners page. Add new partners as they're confirmed."
+            fields:
+              - {label: "Name", name: "name", widget: string}
+              - {label: "Type (e.g. Venue partner)", name: "region", widget: string}
+              - {label: "Logo", name: "logo", widget: image, required: false}
+              - {label: "Website link", name: "url", widget: string, required: false}
+
+      - label: "Donations"
+        name: "donation"
+        file: "content/donation.json"
+        fields:
+          - {label: "JustGiving page link", name: "donateUrl", widget: string, hint: "The Donate button and QR code send people here. If you change it, also regenerate assets/qr/justgiving-qr.png"}
+          - {label: "Preset amounts (£)", name: "amounts", widget: list, field: {label: "Amount", name: "amount", widget: number}}
+          - label: "Impact lines"
+            name: "impact"
+            widget: list
+            summary: "£{{fields.amount}}"
+            fields:
+              - {label: "Amount (£)", name: "amount", widget: number}
+              - {label: "What it funds", name: "line", widget: string}
+
+      - label: "Page headers"
+        name: "pages"
+        file: "content/pages.json"
+        fields:
+          - label: "Home"
+            name: "home"
+            widget: object
+            fields:
+              - {label: "Background image", name: "image", widget: image, required: false}
+              - {label: "Small title", name: "eyebrow", widget: string, required: false}
+              - {label: "Headline", name: "title", widget: string}
+              - {label: "Headline (orange line)", name: "accent", widget: string, required: false}
+              - {label: "Intro", name: "lead", widget: text, required: false}
+              - {label: "Closing banner line", name: "ctaTitle", widget: string}
+          - label: "About"
+            name: "about"
+            widget: object
+            fields:
+              - {label: "Background image", name: "image", widget: image, required: false}
+              - {label: "Small title", name: "eyebrow", widget: string, required: false}
+              - {label: "Headline", name: "title", widget: string}
+              - {label: "Headline (orange line)", name: "accent", widget: string, required: false}
+              - {label: "Intro", name: "lead", widget: text, required: false}
+          - label: "What We Do"
+            name: "whatwedo"
+            widget: object
+            fields:
+              - {label: "Background image", name: "image", widget: image, required: false}
+              - {label: "Small title", name: "eyebrow", widget: string, required: false}
+              - {label: "Headline", name: "title", widget: string}
+              - {label: "Headline (orange line)", name: "accent", widget: string, required: false}
+              - {label: "Intro", name: "lead", widget: text, required: false}
+          - label: "Events"
+            name: "events"
+            widget: object
+            fields:
+              - {label: "Background image", name: "image", widget: image, required: false}
+              - {label: "Small title", name: "eyebrow", widget: string, required: false}
+              - {label: "Headline", name: "title", widget: string}
+              - {label: "Headline (orange line)", name: "accent", widget: string, required: false}
+              - {label: "Intro", name: "lead", widget: text, required: false}
+
+      - label: "Footer & settings"
+        name: "settings"
+        file: "content/settings.json"
+        fields:
+          - {label: "General contact email (Contact and policy pages)", name: "contactEmail", widget: string}
+          - {label: "Partnerships email (Support Us and Founding Circle pages)", name: "partnershipEmail", widget: string}
+          - {label: "Default ticket link", name: "ticketsUrl", widget: string, required: false}
+          - {label: "Merchandise store link (Support Us page)", name: "merchUrl", widget: string, required: false}
+          - {label: "Charity number", name: "charityNumber", widget: string}
+          - {label: "Instagram URL", name: "instagram", widget: string, required: false}
+          - {label: "YouTube URL", name: "youtube", widget: string, required: false}
+          - {label: "LinkedIn URL", name: "linkedin", widget: string, required: false}
+          - {label: "Facebook URL", name: "facebook", widget: string, required: false}

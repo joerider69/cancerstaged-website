@@ -1,0 +1,103 @@
+/* Cancer Staged colour system v1.0 — primitives (7 core + minimal tonal steps) */
+:root{
+--cs-orange:#FF6A28;
+--cs-orange-hover:#F2591A;
+--cs-orange-text:#B23B08;
+--cs-ink:#111111;
+--cs-ink-hover:#2B2B2B;
+--cs-warm-white:#FFFDF8;
+--cs-bone:#F2EDE5;
+--cs-bone-line:#DDD5C9;
+--cs-peach:#FFD7C2;
+--cs-aubergine:#2B1726;
+--cs-aubergine-raised:#3D2436;
+--cs-warm-grey:#6D6A66;
+--cs-warm-grey-light:#A8A39C;
+--cs-success:#1E7A4A;
+--cs-warning:#9A5B00;
+--cs-error:#C42B1C;
+
+/* Brand */
+--brand-primary:var(--cs-orange);
+--brand-ink:var(--cs-ink);
+--brand-after-dark:var(--cs-aubergine);
+
+/* Background — full-bleed section grounds ("chapters") */
+--bg-page:var(--cs-warm-white);
+--bg-bone:var(--cs-bone);
+--bg-peach:var(--cs-peach);
+--bg-ink:var(--cs-ink);
+--bg-orange:var(--cs-orange);
+--bg-after-dark:var(--cs-aubergine);
+
+/* Surface — things that sit on a ground */
+--surface-default:var(--cs-warm-white);
+--surface-subtle:var(--cs-bone);
+--surface-selected:var(--cs-ink);
+--surface-on-dark:var(--cs-aubergine-raised);
+
+/* Text */
+--text-primary:var(--cs-ink);
+--text-secondary:var(--cs-warm-grey);
+--text-inverse:var(--cs-warm-white);
+--text-inverse-secondary:var(--cs-warm-grey-light);
+--text-on-orange:var(--cs-ink);
+--text-accent-on-dark:var(--cs-orange);
+--text-accent-on-light:var(--cs-orange-text);
+--text-link:var(--cs-ink);
+
+/* Border */
+--border-subtle:var(--cs-bone-line);
+--border-strong:var(--cs-ink);
+--border-inverse-subtle:rgba(255,253,248,.18);/* @kind color */
+--border-inverse-strong:var(--cs-warm-white);
+--border-on-orange:var(--cs-ink);
+
+/* Interactive */
+--interactive-primary:var(--cs-ink);
+--interactive-primary-text:var(--cs-warm-white);
+--interactive-brand:var(--cs-orange);
+--interactive-brand-text:var(--cs-ink);
+--interactive-secondary-border:var(--cs-ink);
+
+/* Hover */
+--hover-primary:var(--cs-ink-hover);
+--hover-brand:var(--cs-orange-hover);
+--hover-secondary-bg:var(--cs-ink);
+--hover-secondary-text:var(--cs-warm-white);
+--hover-row-dark:rgba(255,253,248,.04);/* @kind color */
+--hover-row-light:rgba(17,17,17,.03);/* @kind color */
+
+/* Focus */
+--focus-ring-light:var(--cs-ink);
+--focus-ring-dark:var(--cs-orange);
+--focus-ring-width:2px;/* @kind other */
+--focus-ring-offset:3px;/* @kind other */
+
+/* Disabled */
+--disabled-bg:var(--cs-bone);
+--disabled-text:var(--cs-warm-grey-light);
+--disabled-border:var(--cs-bone-line);
+
+/* Status */
+--status-success:var(--cs-success);
+--status-success-bg:#E6F2EA;
+--status-warning:var(--cs-warning);
+--status-warning-bg:#FBEEDB;
+--status-error:var(--cs-error);
+--status-error-bg:#FBE7E4;
+
+/* Event metadata */
+--event-date:var(--cs-orange);
+--event-date-on-light:var(--cs-ink);
+--event-meta:var(--cs-warm-grey);
+--event-meta-on-dark:var(--cs-warm-grey-light);
+--event-status-onsale:var(--cs-orange);
+--event-status-soon:var(--cs-peach);
+
+/* Photography overlays */
+--overlay-hero:linear-gradient(90deg,rgba(17,17,17,.82) 0%,rgba(17,17,17,.5) 45%,rgba(17,17,17,0) 80%);/* @kind color */
+--overlay-bottom:linear-gradient(0deg,rgba(17,17,17,.85) 0%,rgba(17,17,17,0) 65%);/* @kind color */
+--overlay-dim:rgba(17,17,17,.4);/* @kind color */
+--overlay-after-dark:linear-gradient(0deg,rgba(43,23,38,.9) 0%,rgba(43,23,38,0) 70%);/* @kind color */
+}

@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "name": "Gigantic Tickets",
+      "region": "Ticketing partner",
+      "logo": "partner-gigantic.png",
+      "url": "https://www.gigantic.com"
+    },
+    {
+      "name": "Union Chapel",
+      "region": "Venue partner",
+      "logo": "partner-union-chapel.png",
+      "url": "https://unionchapel.org.uk"
+    }
+  ],
+  "friends": []
+}
